@@ -1,3 +1,4 @@
+// Nが与えられます。2 ^ Nを入力してください。
 #include <iostream>
 using namespace std;
 int main()

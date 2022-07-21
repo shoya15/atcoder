@@ -1,3 +1,4 @@
+// 整数R,Cと２行２列からなる行列が与えられるので、A_R,Cを出力してください
 #include <iostream>
 using namespace std;
 int main()
