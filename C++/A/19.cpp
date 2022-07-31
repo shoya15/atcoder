@@ -24,13 +24,15 @@
 // }
 
 #include <iostream>
-#include <vector>
+// #include <vector>
 #include <algorithm>
 using namespace std;
 int main()
 {
-    vector<int> age(3);
+    int age[3];
+    // vector<int> age(3);
     cin >> age[0] >> age[1] >> age[2];
-    sort(age.begin(), age.end()); //昇順にsort, 降順は3つ目にgreater<int>()を追加
+    sort(begin(age), end(age)); // sort(age,age+3)でもいける
+    // sort(age.begin(), age.end()); //昇順にsort, 降順は3つ目にgreater<int>()を追加
     cout << age[1] << endl;
 }
