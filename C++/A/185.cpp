@@ -1,6 +1,18 @@
 /*
-
+高橋君は、プログラミングコンテストを何回か開くことにしました。
+コンテストを 1 回開くには、100 点問題、200 点問題、300 点問題、400 点問題が 1 問ずつ必要です。
+100,200,300,400 点問題の案がそれぞれ A1,A2,A3,A4個あるとき、コンテストを最大で何回開けるでしょうか？
+なお、同じ問題案は 1 度しか使えません。
 */
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-int main() {}
+int main()
+{
+    vector<int> A(4);
+    for (int i = 0; i < 4; i++)
+    {
+        cin >> A[i];
+    }
+    sort(A.begin(), A.end());
+    cout << A[0] << endl;
+}
