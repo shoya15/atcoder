@@ -8,12 +8,17 @@ int main()
 {
     int A, B, C;
     cin >> A >> B >> C;
-    for (int i = 1; C <= B; i++)
-    {
-        if (A <= C)
+    if (B >= C)
+        for (int i = 1; C * i <= B; i++)
         {
-            cout << C << endl;
-            break;
+            if (A <= C * i)
+            {
+                cout << C * i << endl;
+                break;
+            }
+            else if (C * (i + 1) > B)
+                cout << "-1\n";
         }
-    }
+    else
+        cout << "-1\n";
 }
