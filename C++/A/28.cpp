@@ -5,7 +5,8 @@
 テストの点数が 59 点以下ならば Bad と出力。
 60 点以上 89 点以下ならば Good と出力。
 90 点以上 99 点以下ならば Great と出力。
-100 点ならば Perfect と出力。*/
+100 点ならば Perfect と出力。
+*/
 #include <iostream>
 using namespace std;
 int main()
