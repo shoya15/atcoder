@@ -1,5 +1,13 @@
-# 高橋君は N 円借金をしました。
-# 倍返しでおもてなしするのが流行だと小耳に挟んだ高橋君は、2 * N 円返済します。
-# 高橋君が返済する金額 2 * N 円を出力してください。
-p gets.to_i * 2
-# 00'30
+a = gets.chomp.split
+b = gets.chomp.split
+c = gets.chomp.split
+d = gets.chomp.split
+
+def f(x)
+  puts "#{x[3]} #{x[2]} #{x[1]} #{x[0]}"
+end
+
+f(d)
+f(c)
+f(b)
+f(a)

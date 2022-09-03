@@ -1,6 +1,11 @@
-# 高橋君はすべての写真に正整数の通し番号を付けており、木箱内には通し番号が S 以上 T 以下であるすべての写真が入っている。
-# 高橋君は、木箱にある写真の枚数が知りたいが、写真を 1 枚ずつ数えるのは大変である。
-# あなたは高橋くんの代わりに、S と T の値からアルバムに貼られている写真の枚数を計算するプログラムを作成せよ。
-s, t = gets.split.map(&:to_i)
-p t - s + 1
-# 01'00
+n = gets.to_i
+hash = {}  # keyとvalueを入れるための初期化
+n.times do
+  s = gets.chomp
+  if hash.key?(s) # hashのkeyにsが含まれているかどうかで条件分岐（include?で代替え可能）
+    hash[s] += 1
+  else
+    hash[s] = 1
+  end
+end
+puts hash.max_by { |key, value| value }[0] # valueが最大な要素を出力、[0]->keyのみ出力
