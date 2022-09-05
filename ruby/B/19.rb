@@ -1,9 +1,12 @@
-# 3 つの整数 a,b,c から小さい順に並べたときの中央値を求めるプログラムを書いてください
-a, b, c = gets.split.map(&:to_i)
-age = [a, b, c]
-age = age.sort
-p age[1]
-# 08'00
-
-# array = []で配列を設定できる
-# array.sortで昇順に並べ替え
+s = gets.chomp.chars
+sum = 1
+for i in 0..s.size() - 1
+  if s[i] == s[i + 1]
+    sum += 1
+    next
+  else
+    print "#{s[i]}#{sum}"
+    sum = 1
+  end
+end
+puts "\n"

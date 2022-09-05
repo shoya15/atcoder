@@ -1,8 +1,19 @@
-# 高橋君は 3 つの課題に取り組んだ。
-# 課題ごとに配点が定められており、各課題ごとに 1 以上 10 以下の整数による評価が付けられる。評価の数字が X であるとき、その課題においては配点の X 割の得点が与えられる。
-# 3 つの課題の配点と評価が与えられるので、高橋君が合計で何点獲得したのかを求めてほしい。
-a, d = gets.split.map(&:to_i)
-b, e = gets.split.map(&:to_i)
-c, f = gets.split.map(&:to_i)
-p a * d / 10 + b * e / 10 + c * f / 10
-# 03'00
+x = gets.chomp.chars
+arr = ["o", "k", "u"]
+for i in 0..x.size() - 1
+  if x[i] == "c"
+    if x[i + 1] != "h"
+      puts "NO"
+      break
+    end
+  elsif x[i] == "h"
+    if x[i - 1] != "c"
+      puts "NO"
+      break
+    end
+  elsif arr.none?(x[i])
+    puts "NO"
+    break
+  end
+  puts "YES" if i == x.size() - 1
+end
