@@ -1,7 +1,15 @@
-# 正の偶数 A が与えられる。
-# x+y=A となる正の整数 x, y のうち、 x×y が最大となるものを選び、その値を出力しなさい。
-a = gets.to_i
-p (a / 2) ** 2
-# 02'00
-
-# **numでnum乗 /より**が優先される
+n = gets.to_i
+arr = []
+ans = 0
+n.times do
+  arr << gets.to_i
+end
+arr = arr.sort.reverse
+for i in 0..n - 1
+  if i % 2 == 0
+    arr[i] = arr[i] ** 2
+  else
+    arr[i] = -arr[i] ** 2
+  end
+end
+p arr.sum * Math::PI

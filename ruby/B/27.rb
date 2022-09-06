@@ -1,8 +1,13 @@
-# ある長方形の 3 つの辺の長さが与えられる。 残り 1 つの辺の長さを求めよ
-a, b, c = gets.split.map(&:to_i).sort
-if a == b
-  p c
+n = gets.to_i
+a = gets.split.map(&:to_i)
+ans = 0
+sum = a.sum
+if sum % n != 0
+  p -1
 else
-  p a
+  for i in 0..n - 1
+    ans += 1 if a[i] != (sum / n) * (i + 1)
+    a[i + 1] = a[i].to_i + a[i + 1].to_i
+  end
+  p ans
 end
-# 02'00

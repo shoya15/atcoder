@@ -1,4 +1,6 @@
-# 英小文字からなる文字列 W が入力されます。
-# W の末尾に英小文字の s を付け足したものを出力してください。
-puts gets.chomp + "s"
-# 00'30
+ans = 0
+12.times do
+  s = gets.chomp
+  ans += 1 if s.include?("r")
+end
+p ans

@@ -1,6 +1,19 @@
-# 高橋君は 23 という整数を見て、十の位と一の位に分割して足し合わせることによって、2+3=5 と現在の月と等しい数となることに気が付きました。
-# このことに興味を持った高橋君は、手元にあった 2 桁の正整数 X の各位の和を計算することにしました。
-# あなたの課題は、正整数 X の各位の和を求めることです。
-x = gets.to_i
-p x / 10 + x % 10
-# 01'00
+n = gets.to_i
+s = gets.chomp
+str = "b"
+if n % 2 != 0
+  ans = 1
+  while str.size() != n
+    if ans % 3 == 1
+      str = "a#{str}c"
+    elsif ans % 3 == 2
+      str = "c#{str}a"
+    else
+      str = "b#{str}b"
+    end
+    ans += 1
+  end
+  p str == s ? ans - 1 : -1
+else
+  p -1
+end

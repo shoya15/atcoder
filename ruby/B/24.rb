@@ -1,13 +1,13 @@
-# ABC動物園の入場料の設定は以下のようになっています。
-# 子供 1 人あたり A 円
-# 大人 1 人あたり B 円
-# 合計人数が K 人以上の団体は 1 人あたり C 円引き
-# 今、子供 S 人、大人 T 人からなる団体が入場しようとしています。 この団体が合計で支払わなければならない入場料を求めてください。
-a, b, c, k = gets.split.map(&:to_i)
-s, t = gets.split.map(&:to_i)
-if s + t >= k
-  p a * s + b * t - c * (s + t)
-else
-  p a * s + b * t
+n, t = gets.split.map(&:to_i)
+b = gets.to_i
+ans = 0
+(n - 1).times do
+  a = gets.to_i
+  if a - b < t
+    ans += a - b
+  else
+    ans += t
+  end
+  b = a
 end
-# 02'30
+p ans + t
