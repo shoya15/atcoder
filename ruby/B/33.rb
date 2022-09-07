@@ -1,17 +1,14 @@
-# あなたはゲーム開発メンバーの一員です。 現在、あなたはプレイヤーがゲームをプレイするために必要な暗証番号を決めさせる部分を実装しています。
-# この暗証番号は 4 桁 であり、それぞれの桁は 0 以上 9 以下の数字のいずれかです。暗証番号が 0 で始まる可能性もあります。
-# 安全上の関係で、 4 桁とも同じ数字である暗証番号は認めないことにしました。プレイヤーが入力した 4 桁の数 N が与えられるので、 これが 4 桁とも全て同じ数字であるかどうかを判定してください。
-n = gets.chomp
-if n[0] == n[1] && n[1] == n[2] && n[2] == n[3]
-  puts "SAME"
-else
-  puts "DIFFERENT"
+n = gets.to_i
+sum = 0
+max = 0
+ans = ""
+n.times do
+  s, t = gets.split(" ")
+  t = t.to_i
+  sum += t
+  if max < t
+    max = t
+    ans = s
+  end
 end
-# 02'00
-
-# n = gets.to_i
-# if n % 1111 == 0
-#   puts "SAME"
-# else
-#   puts "DIFFERENT"
-# end
+puts max > sum / 2 ? ans : "atcoder"

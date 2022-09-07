@@ -1,9 +1,22 @@
-# 高橋君は画面の幅が W 、高さが H のテレビを持っています。
-# このテレビの画面アスペクト比 W:H が 4:3 か 16:9 か判定してください。
-w, h = gets.split.map(&:to_i)
-if 3 * w == 4 * h
-  puts "4:3"
-else
-  puts "16:9"
+s = gets.chomp
+t = gets.to_i
+x, y, sum = 0, 0, 0
+for i in 0..s.size() - 1
+  if s[i] == "L"
+    x -= 1
+  elsif s[i] == "R"
+    x += 1
+  elsif s[i] == "U"
+    y += 1
+  elsif s[i] == "D"
+    y -= 1
+  else
+    sum += 1
+  end
 end
-# 01'30
+ans = x.abs + y.abs
+if t == 1
+  p ans + sum
+else
+  p sum <= ans ? ans - sum : (sum - ans) % 2
+end

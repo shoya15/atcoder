@@ -1,6 +1,12 @@
-# 高橋君はお茶のペットボトルが A 本入った箱を買うことにしました。 高橋君は少なくとも B 本のお茶のペットボトルがほしいです。 箱を何箱買えばよいですか。
-a, b = gets.split.map(&:to_i)
-p (b + a - 1) / a
-# 02'30
-
-# (x+y-1)/yで切り上げ
+n = gets.to_i
+arr = []
+n.times do
+  arr << gets.chomp
+end
+arr = arr.reverse
+for i in 0..n - 1
+  for j in 0..n - 1
+    print arr[j][i]
+  end
+  puts "\n"
+end

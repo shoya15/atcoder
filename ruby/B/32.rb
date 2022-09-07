@@ -1,14 +1,7 @@
-# 青木君は整数 a で割り切れる数が好きです。 高橋君は整数 b で割り切れる数が好きです。
-# n 以上の整数で、青木君と高橋君の両方が好きな最小の数を答えてください。
-a = gets.to_i
-b = gets.to_i
-n = gets.to_i
-while n % a != 0 || n % b != 0
-  n += 1
+s = gets.chomp
+k = gets.to_i
+arr = []
+for i in 0..s.size() - k
+  arr << s[i, k]
 end
-p n
-# 07'00
-
-# while 条件式
-# end
-# で、条件式を満たしている間は繰り返す
+p arr.uniq.size
