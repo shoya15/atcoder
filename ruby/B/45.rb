@@ -1,7 +1,33 @@
-# 上底の長さが a、下底の長さが b、高さが h の台形があります。
-# この台形の面積を求めてください。
-a = gets.to_i
-b = gets.to_i
-h = gets.to_i
-p (a + b) * h / 2
-# 01'00
+a = gets.chomp
+b = gets.chomp
+c = gets.chomp
+at = "a"
+max = a.size + b.size + c.size
+for i in 0..max
+  if at == "a"
+    if a == ""
+      at = "a"
+      break
+    else
+      at = a[0]
+      a = a[1..-1]
+    end
+  elsif at == "b"
+    if b == ""
+      at = "b"
+      break
+    else
+      at = b[0]
+      b = b[1..-1]
+    end
+  else
+    if c == ""
+      at = "c"
+      break
+    else
+      at = c[0]
+      c = c[1..-1]
+    end
+  end
+end
+puts at == "a" ? "A" : at == "b" ? "B" : "C"
