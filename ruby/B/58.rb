@@ -1,9 +1,6 @@
-# 3 本の柱が等間隔に並んでいます。柱の高さは左から順に a メートル, b メートル, c メートル です。 柱の先端が同一直線上に並んでいる時、つまり b−a=c−b を満たしているとき、 この柱の並び方を美しいと呼びます。
-# 柱の並び方が美しいかどうかを判定してください。
-a, b, c = gets.split.map(&:to_i)
-if b - a == c - b
-  puts "YES"
-else
-  puts "NO"
+o = gets.chomp
+e = gets.chomp
+for i in 0..o.size
+  print "#{o[i]}#{e[i]}"
 end
-# 01'30
+puts "\n"

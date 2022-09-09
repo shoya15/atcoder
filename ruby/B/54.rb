@@ -1,26 +1,23 @@
-# AliceとBobは、2人で1枚ポーカーを行います。
-# 1枚ポーカーは、トランプを用いて行う2人ゲームです。
-
-# 今回使用するトランプでは、各カードに 1 から 13 までの数が書かれています。
-# カードの強さは、カードに書かれている数で決まり，強さの基準は以下の通りです。
-# 弱 2 < 3 < 4 < 5 < 6 < 7 < 8 < 9 < 10 < 11 < 12 < 13 < 1 強
-
-# 1枚ポーカーは以下の手順で行います。
-
-# 各プレイヤーは、トランプからカードを1枚選んで、自分の手札とします。
-# 両プレイヤーは、手札を見せ合います。強いカードを持っているプレイヤーが勝ちです。
-# なお、両プレイヤーの持っているカードの強さが同じ場合は引き分けです。
-# 2人の対戦を眺めていたあなたは、AliceとBobの手札を知ることができます。
-# Aliceが持っているカードに書かれている数は A 、Bobが持っているカードカードに書かれている数は B です。
-# 2人の代わりに、勝敗を判定するプログラムを作ってください。
-a, b = gets.split.map(&:to_i)
-if a == b
-  puts "Draw"
-elsif a == 1 || b != 1 && a > b
-  puts "Alice"
-elsif b == 1 || a != 1 && b > a
-  puts "Bob"
-else
-  puts "Draw"
+n, m = gets.split.map(&:to_i)
+arr_a, arr_b, sum = [], [], 0
+n.times do
+  arr_a << gets.chomp
 end
-# 04'00
+m.times do
+  arr_b << gets.chomp
+end
+for i in 0..n - m
+  for j in 0..n - m
+    for k in i..i + m - 1
+      for l in j..j + m - 1
+        sum += 1 if arr_a[k][l] == arr_b[k - i][l - j]
+      end
+    end
+    if sum == m * m
+      puts "Yes"
+      exit
+    end
+    sum = 0
+  end
+end
+puts "No"

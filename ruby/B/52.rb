@@ -1,9 +1,13 @@
-# 二つの長方形があります。 一つ目の長方形は、縦の辺の長さが A、横の辺の長さが B です。 二つ目の長方形は、縦の辺の長さが C、横の辺の長さが D です。
-# この二つの長方形のうち、面積の大きい方の面積を出力してください。 なお、二つの長方形の面積が等しい時は、その面積を出力してください。
-a, b, c, d = gets.split.map(&:to_i)
-if a * b > c * d
-  p a * b
-else
-  p c * d
+n = gets.to_i
+s = gets.chomp
+x = 0
+arr = [x]
+for i in 0..n - 1
+  if s[i] == "I"
+    x += 1
+  else
+    x -= 1
+  end
+  arr << x
 end
-# 01'30
+puts arr.max
