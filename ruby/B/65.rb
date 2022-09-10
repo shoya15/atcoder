@@ -1,13 +1,12 @@
-# 高橋君は胃が強いので、賞味期限を X 日まで過ぎた食品を食べてもお腹を壊しません。 賞味期限を X+1 日以上過ぎた食品を食べると、お腹を壊します。
-# また、賞味期限を過ぎずに食べると、おいしく感じます。そうでない場合、おいしく感じません。
-# 高橋君は、賞味期限の A 日前に食品を買ってきて、買ってから B 日後に食べました。
-# 高橋君が食品をおいしく感じた場合 delicious を、おいしくは感じなかったがお腹は壊さなかった場合 safe を、お腹を壊した場合 dangerous を出力するプログラムを作成してください。
-x, a, b = gets.split.map(&:to_i)
-if b - a <= 0
-  puts "delicious"
-elsif b - a <= x
-  puts "safe"
-else
-  puts "dangerous"
+n = gets.to_i
+arr = []
+b, ans = 1, 1
+n.times do
+  arr << gets.to_i
 end
-# 06'30
+for i in 0..n - 1
+  break if b == 2
+  ans += 1
+  b = arr[b - 1]
+end
+p ans < n + 1 ? ans - 1 : -1

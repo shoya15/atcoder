@@ -1,9 +1,10 @@
-# 3 つの整数 A,B,C が与えられます。
-# 整数 C が A 以上 かつ B 以下であるかを判定してください。
-a, b, c = gets.split.map(&:to_i)
-if a <= c && c <= b
-  puts "Yes"
-else
-  puts "No"
+n, m = gets.split.map(&:to_i)
+arr = Array.new(50, 0)
+m.times do
+  a, b = gets.split.map(&:to_i)
+  arr[a - 1] += 1
+  arr[b - 1] += 1
 end
-# 01'30
+for i in 0..n - 1
+  p arr[i]
+end
