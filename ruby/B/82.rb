@@ -1,6 +1,3 @@
-# 2 つの正整数 a, b が与えられます。 a, b の平均値を x とします。 x の小数点以下を切り上げて得られる整数を出力してください。
-a, b = gets.split.map(&:to_i)
-p (a + b + 1) / 2
-# 01'30
-
-# 切り上げは(x+y-1)/yでできる（この場合は、x=a+b,y=2）
+s = gets.chomp.chars.sort.join
+t = gets.chomp.chars.sort.reverse.join
+puts s < t ? "Yes" : "No"

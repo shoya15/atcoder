@@ -1,9 +1,14 @@
-# あなたは、X 円を持ってケーキとドーナツを買いに出かけました。
-# あなたはまずケーキ屋で 1 個 A 円のケーキを 1 個買いました。 次に、ドーナツ屋で 1 個 B 円のドーナツをできるだけたくさん買いました。
-# これらの買い物のあと手元に残っている金額は何円ですか。
-x = gets.to_i
 a = gets.to_i
 b = gets.to_i
-x -= a
-p x - b * (x / b)
-# 02'00
+c = gets.to_i
+x = gets.to_i
+ans = 0
+for i in 0..a
+  for j in 0..b
+    for k in 0..c
+      y = 500 * i + 100 * j + 50 * k
+      ans += 1 if y == x
+    end
+  end
+end
+p ans

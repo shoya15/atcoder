@@ -1,11 +1,14 @@
-# すぬけ君は 1,2,3 の番号がついた 3 つのマスからなるマス目を持っています。 各マスには 0 か 1 が書かれており、マス i には siが書かれています。
-# すぬけ君は 1 が書かれたマスにビー玉を置きます。 ビー玉が置かれるマスがいくつあるか求めてください。
-s = gets.chomp
-sum = 0
-for i in 0..2
-  if s[i] == "1"
-    sum += 1
+n = gets.to_i
+a = gets.split.map(&:to_i)
+ans = 0
+for i in 0..a.max
+  for j in 0..n - 1
+    if a[j] % 2 == 0
+      a[j] /= 2
+    else
+      p ans
+      exit
+    end
   end
+  ans += 1
 end
-p sum
-# 02'00
