@@ -1,10 +1,15 @@
-# あなたは、電車とバスを乗り継いで旅行をする計画を立てました。 電車は旅程に沿って通常のきっぷを買うと A 円かかり、乗り放題きっぷを買うと B 円かかります。 バスは旅程に沿って通常のきっぷを買うと C 円かかり、乗り放題きっぷを買うと D 円かかります。
-# 電車およびバスについて通常の切符を買うか乗り放題きっぷを買うかをうまく選んだときの、運賃の合計の最小値を求めてください。
-a = gets.to_i
-b = gets.to_i
-arr1 = [a, b]
-c = gets.to_i
-d = gets.to_i
-arr2 = [c, d]
-p arr1.min + arr2.min
-# 04'00
+n = gets.to_i
+d, x = gets.split.map(&:to_i)
+arr = []
+n.times do
+  arr << gets.to_i
+end
+ans = 0
+for i in 0..n - 1
+  day = 1
+  while day <= d
+    ans += 1
+    day += arr[i]
+  end
+end
+p ans + x

@@ -1,10 +1,22 @@
-# 小学生の高橋君は雑貨店にやってきました。
-# 高橋君は A 円硬貨と B 円硬貨の 2 枚を持っており，C 円のオモチャを買いたいと思っています。高橋君はオモチャを買うことができるでしょうか？
-# なお，高橋君は高橋王国に住んでいるため，日本円ではありえないような硬貨を持っていることもあります。
-a, b, c = gets.split.map(&:to_i)
-if a + b >= c
-  puts "Yes"
-else
-  puts "No"
+n = gets.to_i
+arr1 = []
+n.times do
+  arr1 << gets.chomp
 end
-# 01'00
+m = gets.to_i
+arr2 = []
+m.times do
+  arr2 << gets.chomp
+end
+ans, max = 0, 0
+for i in 0..n - 1
+  ans = 0
+  for j in 0..n - 1
+    ans += 1 if arr1[i] == arr1[j]
+  end
+  for k in 0..m - 1
+    ans -= 1 if arr1[i] == arr2[k]
+  end
+  max = [max, ans].max
+end
+p max
