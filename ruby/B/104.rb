@@ -1,14 +1,19 @@
-# プログラミングコンペティションサイト AtCode は、プログラミングコンテストを定期的に開催しています。
-# AtCode で次に開催されるコンテストは ABC と呼ばれ、レーティングが 1200 未満の参加者のレーティングが変動します。
-# その次に開催されるコンテストは ARC と呼ばれ、レーティングが 2800 未満の参加者のレーティングが変動します。
-# そのさらに次に開催されるコンテストは AGC と呼ばれ、すべての参加者のレーティングが変動します。
-# 高橋くんの AtCode でのレーティングは R です。彼のレーティングが変動する次のコンテストは何でしょうか？
-r = gets.to_i
-if r < 1200
-  puts "ABC"
-elsif r < 2800
-  puts "ARC"
-else
-  puts "AGC"
+s = gets.chomp
+arr = ("a".."z").to_a
+sum = 0
+if s[0] != "A"
+  puts "WA"
+  exit
 end
-# 01'30
+
+for i in 2..s.size - 2
+  sum += 1 if s[i] == "C"
+end
+if sum != 1
+  puts "WA"
+  exit
+end
+
+s = s[1..-1].delete("C")
+t = s.downcase
+puts s == t ? "AC" : "WA"

@@ -1,8 +1,10 @@
-# 高橋君は N 枚の AtCoder せんべいを K 人の AtCoder 参加者になるべく公平に配ることにしました。 N 枚すべてのせんべいを配るとき、せんべいを最も多くもらった人と最も少なくもらった人のもらったせんべいの枚数の差(の絶対値)の最小値を求めてください。
-n, k = gets.split.map(&:to_i)
-if n % k == 0
-  p 0
-else
-  p 1
+n = gets.to_i
+for i in 0..25
+  for j in 0..14
+    if 4 * i + 7 * j == n
+      puts "Yes"
+      exit
+    end
+  end
 end
-# 07'00
+puts "No"

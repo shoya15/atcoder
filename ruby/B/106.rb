@@ -1,5 +1,15 @@
-# 縦 A ヤード、横 B ヤードの畑がある.
-# さて, 道を除いた畑の面積は, 何平方ヤードだろうか? 求めなさい.
-a, b = gets.split.map(&:to_i)
-p (a - 1) * (b - 1)
-# 01'30
+n = gets.to_i
+sum, ans = 0, 0
+for i in 1..n
+  if i % 2 != 0
+    for j in 1..n
+      sum += 1 if i % j == 0
+    end
+    ans += 1 if sum == 8
+    sum = 0
+    i += 2
+  else
+    next
+  end
+end
+p ans

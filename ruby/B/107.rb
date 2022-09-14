@@ -1,4 +1,16 @@
-# N 両編成の列車があります。 この列車の前から i 両目は、後ろから何両目でしょうか？
-n, i = gets.split.map(&:to_i)
-p n - i + 1
-# 00'30
+h, w = gets.split.map(&:to_i)
+arr1, arr2 = [], []
+h.times do
+  a = gets.chomp
+  arr1 << a.chars if a != "." * w
+end
+
+arr1 = arr1.transpose
+for i in 0..w - 1
+  arr2 << arr1[i] if arr1[i].join != "." * arr1[i].size
+end
+
+arr2 = arr2.transpose
+for i in 0..arr2.size - 1
+  puts arr2[i].join
+end
