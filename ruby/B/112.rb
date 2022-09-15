@@ -1,14 +1,7 @@
-# 2020 年, AtCoder 社は年商 10 億円を超え, プログラミング教育にも手を出すようになった.
-# ある日行われたテストでは, 1 才児は Hello World を出力するプログラムを, 2 才児は整数 A, B を入力して A+B を出力するプログラムを書かなければならない.
-# 高橋君はこのテストを受けているが, 突然自分が何才なのかが分からなくなってしまった.
-# そこで, 最初に自分の年齢 N (N は 1 または 2) を入力し, N=1 ならば Hello World と出力し, N=2 ならば A, B を入力して A+B を出力するプログラムを作ることにした.
-# 高橋君に代わって, このようなプログラムを作りなさい.
-n = gets.to_i
-if n == 1
-  puts "Hello World"
-else
-  a = gets.to_i
-  b = gets.to_i
-  p a + b
+n, T = gets.split.map(&:to_i)
+min = 1001
+n.times do
+  c, t = gets.split.map(&:to_i)
+  min = [min, c].min if t <= T
 end
-# 02'30
+puts min != 1001 ? min : "TLE"

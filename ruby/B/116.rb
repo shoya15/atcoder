@@ -1,6 +1,12 @@
-# 直角三角形 ABC があります。∠ABC=90° です。
-# 三角形 ABC の三辺の長さである ∣AB∣,∣BC∣,∣CA∣ が与えられるので、直角三角形 ABC の面積を求めて下さい。
-# ただし、三角形 ABC の面積は整数となることが保証されています。
-a, b, c = gets.split.map(&:to_i)
-p (a * b) / 2
-# 01'30
+def f(n)
+  if n % 2 == 0
+    f = n / 2
+  else
+    f = 3 * n + 1
+  end
+  return f
+end
+
+s = gets.to_i
+arr = [s]
+arr << f(s)
