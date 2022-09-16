@@ -1,9 +1,9 @@
-# ビスケット生産装置を起動すると、起動してから A 秒後、2A 秒後、3A 秒後、... (A の倍数秒後) に B 枚ずつビスケットを生産します。
-# ビスケット生産装置を起動してから T+0.5 秒後までに生産されるビスケットの合計枚数を求めてください。
-a, b, t = gets.split.map(&:to_i)
-if t < a
-  p 0
-else
-  p b * (t / a)
+n = gets.to_i
+v = gets.split.map(&:to_i)
+c = gets.split.map(&:to_i)
+arr = []
+for i in 0..n - 1
+  gap = v[i] - c[i]
+  arr << gap if gap > 0
 end
-# 01'30
+p arr.sum

@@ -1,12 +1,12 @@
-def f(n)
-  if n % 2 == 0
-    f = n / 2
-  else
-    f = 3 * n + 1
-  end
-  return f
-end
-
 s = gets.to_i
 arr = [s]
-arr << f(s)
+while arr == arr.uniq
+  if s % 2 == 0
+    s /= 2
+    arr << s
+  else
+    s = 3 * s + 1
+    arr << s
+  end
+end
+p arr.size

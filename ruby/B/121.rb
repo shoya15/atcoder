@@ -1,8 +1,12 @@
-# H 行 W 列の白色のマス目があります。
-# あなたは h 個の行と w 個の列を選び、選んだ行または列に含まれるマス目を全て黒色で塗りつぶします。
-# 白色のマス目はいくつ残るでしょうか。
-# なお、残る白色のマス目の数は行や列の選び方によらないことが証明できます。
-a, b = gets.split.map(&:to_i)
-c, d = gets.split.map(&:to_i)
-p (a - c) * (b - d)
-# 07'30
+n, m, c = gets.split.map(&:to_i)
+b = gets.split.map(&:to_i)
+ans = 0
+n.times do
+  arr = [c]
+  a = gets.split.map(&:to_i)
+  for i in 0..m - 1
+    arr << a[i] * b[i]
+  end
+  ans += 1 if arr.sum > 0
+end
+p ans

@@ -1,9 +1,14 @@
-# X,A は 0 以上 9 以下の整数です。
-# X が A 未満の時 0、A 以上の時 10 を出力してください。
-x, a = gets.split.map(&:to_i)
-if x < a
-  p 0
+n, x = gets.split.map(&:to_i)
+l = gets.split.map(&:to_i)
+if 0 <= x
+  ans = 1
 else
-  p 10
+  ans = 0
 end
-# 00'30
+d = 0
+
+for i in 0..n - 1
+  d += l[i]
+  ans += 1 if d <= x
+end
+p ans
