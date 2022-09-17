@@ -1,9 +1,7 @@
-# 相違なる整数 A, B があります。
-# ∣A−K∣=∣B−K∣ となるような整数 K を出力してください。
-# そのような整数が存在しなければ、代わりに IMPOSSIBLE を出力してください。
-a, b = gets.split.map(&:to_i).sort
-if (b - a) % 2 == 0
-  p (b - a) / 2 + a
-else
-  puts "IMPOSSIBLE"
+n = gets.to_i
+m = gets.split.map(&:to_i)
+sum = 0
+for i in 0..n - 1
+  sum += 1 if m[i] != i + 1
 end
+puts sum <= 2 ? "YES" : "NO"

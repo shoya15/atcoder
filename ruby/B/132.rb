@@ -1,8 +1,11 @@
-# 長さ 4 の英大文字からなる文字列 S が与えられます。 S がちょうど 2 種類の文字からなり、かつ現れる各文字はちょうど 2 回ずつ現れているかどうかを判定してください。
-s = gets.chomp.chars.sort.join
-if s[0] == s[1] && s[1] != s[2] && s[2] == s[3]
-  puts "Yes"
-else
-  puts "No"
+n = gets.to_i
+m = gets.split.map(&:to_i)
+ans = 0
+for i in 0..n - 3
+  arr = []
+  for j in i..i + 2
+    arr << m[j]
+  end
+  ans += 1 if arr.sort[1] == arr[1]
 end
-# 04'00
+p ans

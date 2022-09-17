@@ -1,11 +1,17 @@
-# 私たちは N 人で旅行しようとしており、その交通手段として電車とタクシーがあります。
-# 電車を使うと 1 人あたり A 円かかります。
-# タクシーを使うと N 人で B 円かかります。
-# 全員の交通費の合計は最小でいくらになるでしょうか。
-n, a, b = gets.split.map(&:to_i)
-if a * n < b
-  p a * n
-else
-  p b
+n, d = gets.split.map(&:to_i)
+arr = []
+ans = 0
+n.times do
+  arr << gets.split.map(&:to_i)
 end
-# 01'30
+
+for i in 0..n - 2
+  for j in i + 1..n - 1
+    sum = 0
+    for k in 0..d - 1
+      sum += (arr[i][k] - arr[j][k]) ** 2
+    end
+    ans += 1 if Math.sqrt(sum).to_i == Math.sqrt(sum)
+  end
+end
+p ans
