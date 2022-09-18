@@ -1,8 +1,6 @@
-a = gets.to_i
-b = gets.to_i
-arr = [1, 2, 3]
-for i in 0..2
-  if arr[i] != a && arr[i] != b
-    p arr[i]
-  end
+n = gets.to_i
+s, t = gets.split(" ")
+for i in 0..n - 1
+  print "#{s[i]}#{t[i]}"
 end
+puts "\n"

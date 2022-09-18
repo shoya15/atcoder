@@ -1,8 +1,9 @@
-arr = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+n = gets.to_i
 s = gets.chomp
-for i in 0..6
-  if s == arr[i]
-    p 7 - i
-    break
-  end
+arr = ("A".."Z").to_a
+for i in 0..s.size - 1
+  at = arr.index(s[i]) + n
+  at -= 26 if at >= 26
+  s[i] = arr[at]
 end
+puts s

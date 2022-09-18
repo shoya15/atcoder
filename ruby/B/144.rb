@@ -1,6 +1,10 @@
-a, b = gets.split.map(&:to_i)
-if a < 10 && b < 10
-  p a * b
-else
-  p -1
+n = gets.to_i
+for i in 1..9
+  for j in 1..9
+    if n == i * j
+      puts "Yes"
+      exit
+    end
+  end
 end
+puts "No"

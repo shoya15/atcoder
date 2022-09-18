@@ -1,4 +1,15 @@
-# 高橋君の住む町の天気は、一日ごとに晴れ(Sunny)、くもり(Cloudy)、雨(Rainy)、晴れ、くもり、雨、… と周期的に変化します。
-# 今日の天気を表す文字列 S が与えられるので、明日の天気を予測してください。
 s = gets.chomp
-puts s == "Sunny" ? "Cloudy" : s == "Cloudy" ? "Rainy" : "Sunny"
+for i in 0..s.size - 1
+  if i % 2 == 0 || i % 2 == 2
+    if s[i] == "L"
+      puts "No"
+      exit
+    end
+  else
+    if s[i] == "R"
+      puts "No"
+      exit
+    end
+  end
+end
+puts "Yes"
