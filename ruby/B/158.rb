@@ -1,2 +1,4 @@
-s = gets.chomp
-puts s[0] == s[1] && s[1] == s[2] ? "No" : "Yes"
+n, a, b = gets.split.map(&:to_i)
+sum = a + b
+ans = n / sum * a + [a, n % sum].min
+p ans

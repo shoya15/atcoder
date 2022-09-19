@@ -1,2 +1,3 @@
-h, a = gets.split.map(&:to_i)
-p h % a == 0 ? h / a : h / a + 1
+h, n = gets.split.map(&:to_i)
+a = gets.split.map(&:to_i).sum
+puts a >= h ? "Yes" : "No"

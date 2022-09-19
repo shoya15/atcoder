@@ -1,2 +1,3 @@
-n, r = gets.split.map(&:to_i)
-p n >= 10 ? r : r + 100 * (10 - n)
+n, k = gets.split.map(&:to_i)
+n = n.to_s(k)
+p n.size
