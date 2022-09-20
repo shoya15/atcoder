@@ -1,3 +1,3 @@
-r = gets.to_f
-p 2 * Math::PI * r
-# Math::PI or #include Mathでπが使えるようになる
+n, m = gets.split.map(&:to_i)
+a = gets.split.map(&:to_i)
+p a.sum > n ? -1 : n - a.sum

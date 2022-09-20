@@ -1,4 +1,9 @@
-x = gets.split.map(&:to_i)
-p x.index(0) + 1
-# xだけで行けるらしい、配列？？
-# .index(要素)で要素の位置を返す
+x, y = gets.split.map(&:to_i)
+for i in 0..x
+  j = x - i
+  if 2 * i + 4 * j == y
+    puts "Yes"
+    exit
+  end
+end
+puts "No"

@@ -1,2 +1,6 @@
-n = gets.chomp
-puts n[0] == "7" || n[1] == "7" || n[2] == "7" ? "Yes" : "No"
+n = gets.to_i
+arr = []
+for i in 1..n
+  arr << i if i % 3 != 0 && i % 5 != 0
+end
+p arr.sum
