@@ -1,1 +1,2 @@
-p gets.to_i == 0 ? 1 : 0
+a, b, c, d = gets.split.map(&:to_i)
+p [a * c, a * d, b * c, b * d].max
