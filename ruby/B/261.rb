@@ -1,7 +1,7 @@
 n = gets.to_i
 arr = []
 n.times do
-  arr << gets.split(" ")
+  arr << gets.chomp
 end
 for i in 0..n - 1
   for j in 0..n - 1
