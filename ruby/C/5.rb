@@ -1,5 +1,18 @@
-# 高橋君はたこ焼き屋をはじめることにしました。
-# たこ焼きを１つ作るのに必要な小麦粉の量xグラムと、高橋くんが今持っている小麦粉の量yグラムが与えられるので高橋くんが最大でいくつたこ焼きを作れるか出力して下さい。
-x, y = gets.split.map(&:to_i)
-p y / x
-# 01'00
+t = gets.to_i
+n = gets.to_i
+a = gets.split.map(&:to_i)
+m = gets.to_i
+b = gets.split.map(&:to_i)
+if n < m
+  puts "no"
+else
+  i, j = 0, 0
+  while i < n
+    if a[i] <= b[j] && b[j] <= a[i] + t
+      j += 1
+    end
+    i += 1
+    break if j == m
+  end
+  puts j == m ? "yes" : "no"
+end

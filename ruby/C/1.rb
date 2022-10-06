@@ -1,10 +1,24 @@
-# ある時刻の積雪深 H_1と その 1 時間前の積雪深 H_2が与えられます。この時、この 1 時間の積雪深差 H_1 - H_2の値を計算して出力してください。
-h1 = gets.to_i
-h2 = gets.to_i
-p h1 - h2
-# 05'30
-
-# gets：get stringの略で文字列型として入力を受け取る
-# .to_i：整数型に変換する
-# puts：出力（末尾に改行を入れる）-> pに省略可能
-# print；出力（末尾に改行を入れない）
+deg, dis = gets.split.map(&:to_f)
+deg /= 10
+dis /= 60
+dis = dis.round(1)
+arr = ["NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
+dir = "N"
+n = 11.25
+for i in 0..14
+  if n <= deg && deg < n + 22.5
+    dir = arr[i]
+    break
+  end
+  n += 22.5
+end
+arr = [0.2, 1.5, 3.3, 5.4, 7.9, 10.7, 13.8, 17.1, 20.7, 24.4, 28.4, 32.6]
+w = 12
+for i in 0..11
+  if dis <= arr[i]
+    w = i
+    break
+  end
+end
+dir = "C" if w == 0
+puts "#{dir} #{w}"
