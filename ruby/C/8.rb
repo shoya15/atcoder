@@ -1,6 +1,19 @@
-# 高橋君はすべての写真に正整数の通し番号を付けており、木箱内には通し番号が S 以上 T 以下であるすべての写真が入っている。
-# 高橋君は、木箱にある写真の枚数が知りたいが、写真を 1 枚ずつ数えるのは大変である。
-# あなたは高橋くんの代わりに、S と T の値からアルバムに貼られている写真の枚数を計算するプログラムを作成せよ。
-s, t = gets.split.map(&:to_i)
-p t - s + 1
-# 01'00
+n = gets.to_i
+arr = []
+n.times do
+  arr << gets.to_i
+end
+
+ans = 0
+arr.each do |i|
+  s = 0
+  arr.each do |j|
+    s += 1 if i % j == 0
+  end
+  if (s - 1).odd?
+    ans += 0.5
+  else
+    ans += (s + 1).to_f / (2 * s).to_f # 自分自身同士のパターンを省く
+  end
+end
+p ans

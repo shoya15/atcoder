@@ -1,8 +1,17 @@
-# 高橋君の秘書のなぎさちゃんは、高橋君からハンドルネームを貰いました。
-# しかし、残念なことに、このハンドルネームは、既に登録しようとしたサービスで使われてしまっていました。
-# 仕方がないので、なぎさちゃんが好きなC++に肖って、ハンドルネームの末尾にppを付けることにしました。
-# 元のハンドルネームが入力されるので、新しいハンドルネームを出力してください。
-puts gets.chomp + "pp"
-# 04'30
+xa, ya, xb, yb, t, v = gets.split.map(&:to_i)
+n = gets.to_i
+arr = []
+n.times do
+  arr << gets.split.map(&:to_i)
+end
 
-# gets：末尾に改行を入れる -> gets.chompとすれば末尾に改行が入らない
+arr.each do |i|
+  sum = 0
+  x, y = i[0], i[1]
+  sum += Math.sqrt((xa - x) ** 2 + (ya - y) ** 2) + Math.sqrt((xb - x) ** 2 + (yb - y) ** 2)
+  if sum <= t * v
+    puts "YES"
+    exit
+  end
+end
+puts "NO"

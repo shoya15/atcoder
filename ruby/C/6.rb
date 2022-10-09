@@ -1,10 +1,11 @@
-# 数字 N が与えられます。 N に 3 が含まれる、もしくは 3 で割り切れる場合はYES、それ以外は NO と出力してください。
-n = gets.to_i
-if n % 3 == 0
-  puts "YES"
-else
-  puts "NO"
+n, m = gets.split.map(&:to_i)
+for i in 0..1 # 老人*2==大人*1 + 赤ちゃん*1を用いて高速にする
+  for j in 0..n - i
+    k = n - i - j
+    if i * 3 + j * 2 + k * 4 == m
+      puts "#{j} #{i} #{k}"
+      exit
+    end
+  end
 end
-# 02'00
-
-# pだと"YES"(or "NO")のように出力されてしまう -> putsにすれば解消
+puts "-1 -1 -1"
