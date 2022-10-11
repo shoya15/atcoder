@@ -1,10 +1,26 @@
-# 高橋君は、来月遊びに行く約束をしました。
-# ですが、高橋君は頭が悪いので、来月が何月であるかが解りません。
-# 今月が何月かが与えられるので、来月が何月であるかを出力するプログラムを作ってあげてください。
 n = gets.to_i
-if n == 12
-  puts "1"
-else
-  p n + 1
+arr = []
+3.times do
+  arr << gets.to_i
 end
-# 01'00
+if arr.include?(n)
+  puts "NO"
+  exit
+end
+for i in 1..100
+  unless arr.include?(n - 3)
+    n -= 3
+    next
+  end
+  unless arr.include?(n - 2)
+    n -= 2
+    next
+  end
+  unless arr.include?(n - 1)
+    n -= 1
+    next
+  end
+  puts "NO"
+  exit
+end
+puts n <= 0 ? "YES" : "NO"

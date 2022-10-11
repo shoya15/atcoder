@@ -1,18 +1,9 @@
-# 高橋君はとても英語が苦手で、アルファベットもまだ覚えきれていません。
-# そこで、高橋君のために、入力として与えられたアルファベットが A から数えて何番目のアルファベットかを求めるプログラムを作成してください。
-# ただし、高橋君は 5 より大きい数を知らないので、与えられるアルファベットは A, B, C, D, E のいずれかです。また、A 自身は A から数えて 1 番目であるとします（0 番目ではありません）。
-x = gets.chomp
-if x == "A"
-  puts "1"
-elsif x == "B"
-  p 2
-elsif x == "C"
-  p 3
-elsif x == "D"
-  p 4
-else
-  p 5
+n, h = gets.split.map(&:to_i)
+a, b, c, d, e = gets.split.map(&:to_i)
+min = a * n
+n.times do |i|
+  j = [(e * n - e * i - b * i - h) / (d + e) + 1, 0].max
+  next if i + j > n
+  min = [min, a * i + c * j].min
 end
-# 04'30
-
-# get.chompにして改行を含めないようにしないとうまくいかない
+p min
