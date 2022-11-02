@@ -1,29 +1,22 @@
 arr = []
-for i in 0..8
-  s = gets.chomp
-  for j in 0..8
-    arr << [i, j] if s[j] == "#"
-  end
+9.times do
+  arr << gets.chomp
 end
 
-n = arr.size
 ans = 0
-
-def f(arr, i, j, a, b)
-  return (arr[i][a] - arr[j][a]).abs + (arr[i][b] - arr[j][b]).abs
-end
-
-print arr
-puts f(arr, 0, 1, 0, 1)
-
-for i in 0..n - 1
-  for j in 0..n - 1
-    break if i == j
-    for k in 0..n - 1
-      break if j == k
-      for l in 0..n - 1
-        break if k == l
-        ans += 1 if f(arr, i, j, 0, 1) == f(arr, j, k, 0, 1) && f(arr, j, k, 0, 1) == f(arr, k, l, 0, 1) && f(arr, j, k, 0, 1) == f(arr, l, i, 0, 1)
+9.times do |i|
+  9.times do |j|
+    next if arr[i][j] == "."
+    (0..i).each do |y| # 前の行
+      (j + 1..8).each do |x| # 後ろの列
+        next if arr[y][x] == "."
+        dy = i - y
+        dx = x - j # 差分
+        ii = i + dx
+        jj = j + dy
+        yy = y + dx
+        xx = x + dy #他の２点を求める
+        ans += 1 if ii < 9 && jj < 9 && yy < 9 && xx < 9 && arr[ii][jj] == "#" && arr[yy][xx] == "#"
       end
     end
   end
