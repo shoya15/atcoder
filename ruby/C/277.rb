@@ -1,26 +1,27 @@
+# 幅優先探索
 n = gets.to_i
-arr, temp = [], []
-max = 0
+
+# グラフ
+hash = Hash.new { |hash, key| hash[key] = [] }
 n.times do
-  a, b = gets.split.map(&:to_i).sort
-  if a == 1
-    arr << b
-    max = [max, b].max
-  end
-  temp << [a, b] if a != 1
+  a, b = gets.split.map(&:to_i)
+  hash[a] << b
+  hash[b] << a
 end
 
-if arr.empty?
-  puts 1
-  exit
-end
+# 探索済み
+searched = Hash.new(false) # hashじゃなかったら（arr）だったら、配列も可
 
-for i in 0..temp.size-2
-    for j in 0..temp.size-1
-  if temp[i][0] <= max
-    next
-  else
-    max = temp[i][1] if temp[i][0] == max
+# スタート地点
+searched[1] = true
+que = [1]
+
+while !que.empty?
+  node = que.shift
+  hash[node].each do |i|
+    next if searched[i] == true # searched
+    searched[i] = true
+    que << i
   end
 end
-puts max
+puts searched.keys.max # 1から探索してたどり着けた最大値
