@@ -1,10 +1,16 @@
 n = gets.to_i
-a = gets.split.map(&:to_i)
-for i in 0..n - 2
-  if a[i + 1..n - 1] == a[i + 1..n - 1].sort
-    max = a[i + 1..n - 1].max
-    j = a[i + 1..n - 1].index(max)
-    a[i], a[j] = max, a[i]
-    puts "#{a[0..i - 1]} #{max} #{a[i + 1..n - 1].sort.reverse}"
+m = gets.split.map(&:to_i)
+
+i = 0
+while m[i + 1..n - 1] != m[i + 1..n - 1].sort
+  i += 1
+end
+
+m[i + 1..n - 1] = m[i + 1..n - 1].sort.reverse
+for j in i + 1..n - 1
+  if m[j] < m[i]
+    m[i], m[j] = m[j], m[i]
+    break
   end
 end
+puts m.join(" ")
