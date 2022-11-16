@@ -1,4 +1,4 @@
-# 深さ優先探索
+# 深さ優先探索（stack）
 n, x, y = gets.split.map(&:to_i)
 arr = Array.new(n + 1) { [] }
 (n - 1).times do
