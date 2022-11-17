@@ -1,18 +1,9 @@
+# 少なくとも一箇所がいずれも１ → 論理積&（両方が１なら１を返す）
 n = gets.to_i
-m = n.to_s(2)
-for i in 0..n
-  sum = 0
-  r = i.to_s(2)
-  r = "0" * (m.size - r.size) + r if r.size < m.size
-  for j in 0..m.size - 1
-    if r[j] == "1"
-      if m[j] == "1"
-        sum += 1
-        next
-      else
-        break
-      end
-    end
-  end
-  puts i if sum == r.count("1")
+m = n
+ans = [n]
+while m > 0
+  m = (m - 1) & n
+  ans << m
 end
+puts ans.sort!
