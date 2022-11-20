@@ -1,24 +1,17 @@
-h, m = gets.split(" ")
-h = "0" + h if h.size == 1
-m = "0" + m if m.size == 1
-s, t = h, m
-if h[0].to_i == 2
-  if h[1].to_i <= 5 && m[0].to_i <= 3
+h, m = gets.split.map(&:to_i)
+loop do
+  a, b = h / 10, h % 10
+  c, d = m / 10, m % 10
+  if a * 10 + c < 24 && b * 10 + d < 60
     puts "#{h} #{m}"
     exit
   end
-else
-  if h[1].to_i <= 5 && m[0].to_i <= 9
-    puts "#{h} #{m}"
-    exit
+  m += 1
+  if m == 60
+    m = 0
+    h += 1
+  end
+  if h == 24
+    h = 0
   end
 end
-
-s[1], t[0] = t[0], s[1]
-until s.to_i <= 23 && t.to_i <= 59
-  s, t = h, m
-  s[1], t[0] = s[0], t[1]
-  if h[0]=="2"
-    if m[]
-end
-puts "#{h} #{m}"
