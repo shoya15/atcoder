@@ -1,2 +1,7 @@
 n, m = gets.split.map(&:to_i)
-puts [n + ((m - n * 2) / 4), c / 4 + c % 4 * 2].max
+if n * 2 >= m
+  puts m / 2
+else
+  m -= n * 2
+  puts n + m / 4
+end
