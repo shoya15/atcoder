@@ -1,4 +1,10 @@
-# 高橋君は高さが Acm、幅が Bcm、奥行きが Ccm の直方体を持っています。この直方体の表面積は何 cm＾2でしょうか？
-a, b, c = gets.split.map(&:to_i)
-p 2 * a * b + 2 * b * c + 2 * c * a
-# 01'30
+s = gets.chomp
+t = "WBWBWWBWBWBW" * 3
+hash = {0 => "Do", 2 => "Re", 4 => "Mi", 5 =>"Fa", 7 =>"So", 9 => "La", 11 => "Si"}
+12.times do|i|
+    next if t[i] == "B"
+    if t[i..i + 19] == s
+        puts hash[i]
+        exit
+    end
+end
