@@ -1,8 +1,10 @@
-# 文字列 s と整数 i (1≦i≦∣s∣) が与えられます。 s の i 文字目を出力してください。
-# なお、∣s∣ は文字列 s の長さを表します。
-s = gets.chomp
-i = gets.to_i - 1
-puts s[i]
-# 00'30
-
-# i文字目 -> オフセットはi-1
+n = gets.to_i
+a = gets.split.map(&:to_i)
+arr = []
+a.each_with_index do |i, j|
+  arr << [i, j]
+end
+arr = arr.sort.reverse
+arr.each do |i|
+  puts i[1] + 1
+end

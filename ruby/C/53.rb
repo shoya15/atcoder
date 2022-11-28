@@ -1,7 +1,10 @@
-# すめけくんは現在のレートが 1200 未満ならば AtCoder Beginner Contest (ABC) に、そうでなければ AtCoder Regular Contest (ARC) に参加することにしました。 すめけくんの現在のレート x が与えられます。すめけくんが参加するコンテストが ABC ならば ABC と、そうでなければ ARC と出力してください。
-if gets.to_i < 1200
-  puts "ABC"
+x = gets.to_i
+n = x % 11
+m = x / 11 * 2
+if n == 0
+  puts m
+elsif n <= 6
+  puts m + 1
 else
-  puts "ARC"
+  puts m + 2
 end
-# 01'00
