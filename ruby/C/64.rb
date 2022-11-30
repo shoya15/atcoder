@@ -1,11 +1,31 @@
-# AtCoDeer君は、赤、緑、青色のカードを持っています。
-# それぞれのカードには 1 以上 9 以下の整数が書かれており、赤色のカードには r、緑色のカードには g、青色のカードには b が書かれています。
-# 3 つのカードを左から順に赤、緑、青色の順に並べ、左から整数を読んだときにこれが 4 の倍数であるか判定しなさい。
-r, g, b = gets.split(" ")
-num = (r + g + b).to_i
-if num % 4 == 0
-  puts "YES"
-else
-  puts "NO"
+n = gets.to_i
+a = gets.split.map(&:to_i)
+arr = Array.new(8, 0)
+cnt = 0
+a.each do |i|
+  if i < 400
+    arr[0] = 1
+  elsif i < 800
+    arr[1] = 1
+  elsif i < 1200
+    arr[2] = 1
+  elsif i < 1600
+    arr[3] = 1
+  elsif i < 2000
+    arr[4] = 1
+  elsif i < 2400
+    arr[5] = 1
+  elsif i < 2800
+    arr[6] = 1
+  elsif i < 3200
+    arr[7] = 1
+  else
+    cnt += 1
+  end
 end
-# 02'30
+sum = arr.sum
+if sum == 0
+  sum = 1
+  cnt -= 1
+end
+puts "#{sum} #{sum + cnt}"

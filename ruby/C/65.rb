@@ -1,13 +1,18 @@
-# 高橋君は胃が強いので、賞味期限を X 日まで過ぎた食品を食べてもお腹を壊しません。 賞味期限を X+1 日以上過ぎた食品を食べると、お腹を壊します。
-# また、賞味期限を過ぎずに食べると、おいしく感じます。そうでない場合、おいしく感じません。
-# 高橋君は、賞味期限の A 日前に食品を買ってきて、買ってから B 日後に食べました。
-# 高橋君が食品をおいしく感じた場合 delicious を、おいしくは感じなかったがお腹は壊さなかった場合 safe を、お腹を壊した場合 dangerous を出力するプログラムを作成してください。
-x, a, b = gets.split.map(&:to_i)
-if b - a <= 0
-  puts "delicious"
-elsif b - a <= x
-  puts "safe"
-else
-  puts "dangerous"
+X = 10**9 + 7
+def f(n)
+  (2..n).inject(1) { |i, j| (i * j) % X }
+  # result=1
+  # (2..n).each do|i|
+  #     result=(result*i)%X
+  # end
+  # result
 end
-# 06'30
+
+n, m = gets.split.map(&:to_i)
+if (n - m).abs > 1
+  puts 0
+elsif n == m
+  puts 2 * f(n) * f(m) % X
+else
+  puts f(n) * f(m) % X
+end
