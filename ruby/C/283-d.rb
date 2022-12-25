@@ -1,22 +1,23 @@
-s = gets.chomp
+s = gets.chomp.chars
+arr = []
 hash = {}
-for i in 0..s.size - 1
-  a = s[i]
-  if a == '('
-    flag = i
-    next
-  end
-  if a == ')'
-    hash.keys.each do |j|
-      hash.delete(j) if flag < hash[j]
+s.each do |i|
+  case i
+  when '('
+    arr << i
+  when ')'
+    until arr[-1] == '('
+      a = arr.pop
+      hash[a] = false
     end
-    next
-  end
-  if hash[a]
-    puts 'No'
-    exit
+    arr.pop
   else
-    hash[a] = i
+    if hash[i]
+      puts 'No'
+      exit
+    end
+    hash[i] = true
+    arr << i
   end
 end
 puts 'Yes'
