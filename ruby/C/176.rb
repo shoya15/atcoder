@@ -1,2 +1,10 @@
-n, x, t = gets.split.map(&:to_i)
-p n % x == 0 ? n / x * t : (n / x + 1) * t
+n = gets.to_i
+a = gets.split.map(&:to_i)
+
+ans = 0
+max = 0
+a.each do|i|
+    max = [max, i].max
+    ans += max - i
+end
+puts ans
