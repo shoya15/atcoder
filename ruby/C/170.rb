@@ -1,4 +1,12 @@
-x = gets.split.map(&:to_i)
-p x.index(0) + 1
-# xだけで行けるらしい、配列？？
-# .index(要素)で要素の位置を返す
+x, n = gets.split.map(&:to_i)
+a = gets.split.map(&:to_i)
+
+arr = []
+for i in 0..101
+    if a.include?(i)
+        arr << 100
+        next
+    end
+    arr << (x - i).abs
+end
+puts arr.index(arr.min)
