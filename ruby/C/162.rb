@@ -1,2 +1,10 @@
-n = gets.chomp
-puts n[0] == "7" || n[1] == "7" || n[2] == "7" ? "Yes" : "No"
+k = gets.to_i
+ans = 0
+for a in 1..k
+    for b in 1..k
+        for c in 1..k
+            ans += a.gcd(b).gcd(c)
+        end
+    end
+end
+puts ans
