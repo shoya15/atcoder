@@ -1,2 +1,3 @@
-a, b, c = gets.split.map(&:to_i)
-print "#{c} #{a} #{b}\n"
+n, k = gets.split.map(&:to_i)
+n %= k
+puts [n, (n - k).abs].min
