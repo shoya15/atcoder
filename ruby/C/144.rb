@@ -1,6 +1,9 @@
-a, b = gets.split.map(&:to_i)
-if a < 10 && b < 10
-  p a * b
-else
-  p -1
+n = gets.to_i
+
+ans = 10 ** 18
+i = 1
+while i ** 2 <= n
+  ans = [ans, i + n/i - 2].min if n % i == 0
+  i += 1
 end
+puts ans
