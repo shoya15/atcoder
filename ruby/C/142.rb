@@ -1,5 +1,8 @@
-# 整数 N が与えられます。
-# 高橋君は、N 以下の正整数の中から等確率で 1 つを選んで a とします。
-# このとき、a が奇数である確率を答えてください。
 n = gets.to_i
-p n.even? ? 1 / 2.to_f : (n / 2 + 1) / n.to_f
+a = gets.split.map(&:to_i)
+
+ans = Array.new(n, 0)
+a.each_with_index do|i, idx|
+    ans[i - 1] = idx + 1
+end
+puts ans.join(" ")

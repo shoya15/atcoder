@@ -1,3 +1,8 @@
-# 高橋君は 3 桁のパスワードを設定しようとしています。
-# 使える文字が 1 以上 N 以下の数字のみであるとき、設定できるパスワードが全部で何種類であるかを答えてください。
-p gets.to_i ** 3
+n = gets.to_i
+b = gets.split.map(&:to_i)
+
+ans = 0
+for i in 1..n - 2
+    ans += [b[i - 1], b[i]].min
+end
+puts ans + b[0] + b[n - 2]
