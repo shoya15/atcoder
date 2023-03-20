@@ -1,14 +1,15 @@
-# ある 3 日間の天気予報が、長さ 3 の文字列 S として与えられます。
-# S の i (1≤i≤3) 文字目が S のとき、i 日目の天気予報が晴れだったことを、C のときは曇りだったことを、R のときは雨だったことを意味します。
-# また 3 日間の実際の天気が、長さ 3 の文字列 T として与えられます。
-# T の i (1≤i≤3) 文字目が S のとき、i 日目の実際の天気が晴れだったことを、C のときは曇りだったことを、R のときは雨だったことを意味します。
-# 3 日間で天気予報が的中した日が何日あるかを出力してください。
-s = gets.chomp
-t = gets.chomp
+n = gets.to_i
+h = gets.split.map(&:to_i)
+
+hash = {}
 ans = 0
-for i in 0..2
-  if s[i] == t[i]
-    ans += 1
+n.times do|i|
+  next if hash[i]
+  hash[i] = true
+  for j in i + 1..n - 1
+    break if h[j - 1] < h[j]
+    hash[j] = true
+    ans = [ans, j - i].max
   end
 end
-p ans
+puts ans
