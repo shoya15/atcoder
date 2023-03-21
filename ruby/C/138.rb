@@ -1,9 +1,9 @@
-# 整数 a と、英小文字からなる文字列 s が入力されます。
-# a が 3200 以上なら s と出力し、a が 3200 未満なら red と出力するプログラムを書いてください。
-a = gets.to_i
-s = gets.chomp
-if a < 3200
-  puts "red"
-else
-  puts s
+n = gets.to_i
+v = gets.split.map(&:to_f).sort
+
+pre = 0
+(n - 1).times do|i|
+  pre = (v[i] + v[i + 1]) / 2
+  v[i + 1] = pre
 end
+puts pre
