@@ -1,9 +1,17 @@
-# 相違なる整数 A, B があります。
-# ∣A−K∣=∣B−K∣ となるような整数 K を出力してください。
-# そのような整数が存在しなければ、代わりに IMPOSSIBLE を出力してください。
-a, b = gets.split.map(&:to_i).sort
-if (b - a) % 2 == 0
-  p (b - a) / 2 + a
-else
-  puts "IMPOSSIBLE"
+n = gets.to_i
+a = gets.split.map(&:to_i)
+b = gets.split.map(&:to_i)
+
+ans = 0
+n.times do|i|
+    killed1 = [a[i], b[i]].min
+    ans += killed1
+    a[i] -= killed1
+    b[i] -= killed1
+
+    killed2 = [a[i + 1], b[i]].min
+    ans += killed2
+    a[i + 1] -= killed2
+    b[i] -= killed2
 end
+puts ans

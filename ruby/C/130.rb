@@ -1,9 +1,5 @@
-# X,A は 0 以上 9 以下の整数です。
-# X が A 未満の時 0、A 以上の時 10 を出力してください。
-x, a = gets.split.map(&:to_i)
-if x < a
-  p 0
-else
-  p 10
-end
-# 00'30
+w, h, x, y = gets.split.map(&:to_f)
+ans1 = (w * h) / 2
+ans2 = 0
+ans2 = 1 if 2 * x == w && 2 * y == h
+puts "#{ans1} #{ans2}"

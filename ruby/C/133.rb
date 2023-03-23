@@ -1,11 +1,14 @@
-# 私たちは N 人で旅行しようとしており、その交通手段として電車とタクシーがあります。
-# 電車を使うと 1 人あたり A 円かかります。
-# タクシーを使うと N 人で B 円かかります。
-# 全員の交通費の合計は最小でいくらになるでしょうか。
-n, a, b = gets.split.map(&:to_i)
-if a * n < b
-  p a * n
-else
-  p b
+l, r = gets.split.map(&:to_i)
+mod = 2019
+
+ans = 10 ** 20
+for i in l..r - 1
+    for j in i + 1..r
+        ans = [ans, (i * j) % mod].min
+        if ans == 0
+            puts ans
+            exit
+        end
+    end
 end
-# 01'30
+puts ans
