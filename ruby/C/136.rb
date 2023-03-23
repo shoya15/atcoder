@@ -1,9 +1,11 @@
-# 水を入れる容器が 2 つあります。
-# 容器 1 には水を A ミリリットルまで入れることができ、水が B ミリリットル入っています。
-# 容器 2 には水が C ミリリットル入っています。
-# 容器 2 から容器 1 に入るだけ水を移します。
-# 容器 2 の中には何ミリリットルの水が残るでしょうか。
-a, b, c = gets.split.map(&:to_i)
-a -= b
-c -= a
-p c > 0 ? c : 0
+n = gets.to_i
+h = gets.split.map(&:to_i)
+(n - 2).downto(1) do|i|
+    if h[i] > h[i + 1] + 1
+        puts "No"
+        exit
+    elsif h[i] == h[i + 1] + 1
+        h[i] -= 1
+    end
+end
+puts "Yes"
