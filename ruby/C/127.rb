@@ -1,12 +1,11 @@
-# A 歳の高橋君が観覧車に乗ろうとしています。
-# この観覧車は、13 歳以上が乗るには B 円 (B は偶数) かかりますが、6 歳以上 12 歳以下の人はその半額で乗ることができ、 さらに 5 歳以下の人は無料で乗ることができます。
-# 高橋君が観覧車に乗るには何円かかるかを求めてください。
-a, b = gets.split.map(&:to_i)
-if 13 <= a
-  p b
-elsif 6 <= a && a <= 12
-  p b / 2
-else
-  p 0
+n, m = gets.split.map(&:to_i)
+arr1, arr2 = [], []
+m.times do
+  l, r = gets.split.map(&:to_i)
+  arr1 << l
+  arr2 << r
 end
-# 02'00
+
+left = arr1.max
+right = arr2.min
+puts right >= left ? right - left + 1 : 0
