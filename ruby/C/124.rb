@@ -1,14 +1,15 @@
-# 2 個のボタンがあり、大きさはそれぞれ A,B です。
-# 大きさ X のボタンを押すと、X 枚のコインを獲得し、そのボタンの大きさが 1 小さくなります。
-# あなたは、いずれかのボタンを押すことを 2 回行います。 同じボタンを 2 回押しても構いません。
-# 最大で何枚のコインを獲得できるでしょうか。
-a, b = gets.split.map(&:to_i).sort
-max = b
-b -= 1
-if a < b
-  max += b
-else
-  max += a
+s = gets.chomp.chars
+bi = s[0]
+ans = 0
+for i in 1..s.size - 1
+  if s[i] == bi
+    ans += 1
+    if s[i] == "0"
+      s[i] = "1"
+    else
+      s[i] = "0"
+    end
+  end
+  bi = s[i]
 end
-p max
-# 02'00
+puts ans
