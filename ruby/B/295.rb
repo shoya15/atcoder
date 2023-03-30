@@ -1,8 +1,5 @@
 r, c = gets.split.map(&:to_i)
-b = []
-r.times do
-    b << gets.chomp
-end
+b = Array.new(r){gets.chomp}
 
 arr = Array.new(r){Array.new(c, false)}
 r.times do|i|
@@ -22,7 +19,4 @@ r.times do|i|
         b[i][j] = "." if arr[i][j]
     end
 end
-
-r.times do|i|
-    puts b[i]
-end
+puts b

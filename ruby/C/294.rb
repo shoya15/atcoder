@@ -1,4 +1,4 @@
-n, m = gets.split.map(&:to_i)
+n, m = gets.split(" ")
 a = gets.split.map(&:to_i)
 b = gets.split.map(&:to_i)
 c = (a + b).sort
@@ -8,14 +8,8 @@ c.each_with_index do|i, j|
     hash[i] = j + 1
 end
 
-aa = []
-a.each do|i|
-    aa << hash[i]
-end
+aa = a.map{|i| hash[i]}
 puts aa.join(" ")
 
-bb = []
-b.each do|i|
-    bb << hash[i]
-end
+bb = b.map{|i| hash[i]}
 puts bb.join(" ")
