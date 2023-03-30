@@ -1,12 +1,9 @@
 h, w = gets.split.map(&:to_i)
-a = []
-h.times do
-    a << gets.split.map(&:to_i)
-end
+a = Array.new(h){ gets.split.map(&:to_i)}
 
 ans = 0
-(0...h+w-2).to_a.combination(h-1) do|arr|
-    route = Array.new(h+w-2, 1)
+[*(0...h + w - 2)].combination(h - 1) do|arr|
+    route = Array.new(h + w - 2, 1)
     arr.each do|factor|
         route[factor] = 0
     end
@@ -21,6 +18,6 @@ ans = 0
         end
         temp << a[i][j]
     end
-    ans +=1 if temp.uniq.count == h+w-1
+    ans +=1 if temp.uniq.count == h + w -  1
 end
 puts ans

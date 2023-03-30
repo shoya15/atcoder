@@ -1,11 +1,5 @@
-s = gets.chomp.chars
-ans = []
-i = 1
-while i != s.size - 1
-    ans << s[i]
-    ans << s[i-1]
-    i += 2
+s = gets.chomp
+(s.size / 2).times do|i|
+    s[2 * i], s[2 * i + 1] = s[2 * i + 1], s[2 * i]
 end
-ans << s[i]
-ans << s[i-1]
-puts ans.join
+puts s
