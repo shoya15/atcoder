@@ -4,20 +4,15 @@ a = Array.new(h){ gets.split.map(&:to_i)}
 ans = 0
 [*(0...h + w - 2)].combination(h - 1) do|arr|
     route = Array.new(h + w - 2, 1)
-    arr.each do|factor|
-        route[factor] = 0
-    end
+    arr.each{ |factor| route[factor] = 0 }
 
     i, j = 0, 0
-    temp = [a[0][0]]
+    hash = {a[i][j]=>true}
     route.each do|factor|
-        if factor == 0
-            i += 1
-        else
-            j += 1
-        end
-        temp << a[i][j]
+        factor == 0 ? i += 1 : j += 1
+        break if hash[a[i][j]]
+        hash[a[i][j]] = true
     end
-    ans +=1 if temp.uniq.count == h + w -  1
+    ans += 1 if hash.size == h + w - 1
 end
 puts ans
