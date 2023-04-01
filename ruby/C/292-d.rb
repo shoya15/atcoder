@@ -9,6 +9,7 @@ end
 searched = Array.new(n + 1, false)
 cnt_point = Array.new(n + 1, 0) #頂点の数
 cnt_line = Array.new(n + 1, 0) # 辺の数
+print arr
 
 for i in 1..n
     next if searched[i]
@@ -25,6 +26,8 @@ for i in 1..n
         end
     end
 end
+print cnt_point
+print cnt_line
 
 for i in 1..n
     if cnt_line[i] != cnt_point[i] * 2
