@@ -1,8 +1,7 @@
-n = gets.to_i
+n = gets
 s = gets.chomp.chars
 x, y = 0, 0
-hash = {}
-hash[[0, 0]] = true
+hash = {[0, 0]=>true}
 
 s.each do|i|
     if i == "R"

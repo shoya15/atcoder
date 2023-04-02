@@ -4,5 +4,4 @@ n.times do
     x.shift
     x.pop
 end
-
 puts x.sum.to_f / (3 * n)
