@@ -1,14 +1,4 @@
-str = []
-8.times do
-    str << gets.chomp
-end
+grid = Array.new(8){gets.chomp}.join
 
-arr = *"a".."z"
-8.times do|i|
-    8.times do|j|
-        if str[i][j] == "*"
-            puts "#{arr[j]}#{8 - i}"
-            exit
-        end
-    end
-end
+i = grid.index("*")
+puts "abcdefgh"[i % 8] + "87654321"[i / 8]
