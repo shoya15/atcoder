@@ -1,13 +1,13 @@
 n, k = gets.split.map(&:to_i)
-a = gets.split.map(&:to_i).uniq.sort[0..k - 1]
+# a = gets.split.map(&:to_i).uniq.sort[0..k - 1]
+# a = gets.split.map(&:to_i).uniq.sort[0, k-1]
+a = gets.split.map(&:to_i).uniq.sort[0...k]
+a.unshift(-1)
 
-if a[0] != 0
-    puts 0
-    exit
+a.each_cons(2).each do|i, j|
+    if j != i + 1
+        puts i + 1
+        exit
+    end
 end
-
-i = 0
-while i < k && a[i + 1] == a[i] + 1
-    i += 1
-end
-puts a[i] + 1
+puts a[-1] + 1

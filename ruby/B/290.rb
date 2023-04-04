@@ -1,18 +1,13 @@
 n, k = gets.split.map(&:to_i)
-s = gets.chomp
+s = gets.chomp.chars
 
-cnt = 0
-i = 0
-ans =""
-while cnt < k
-    if s[i] == "o"
-        cnt += 1
-        ans += "o"
-    else
-        ans += "x"
+ans = "x" * n
+count = 0
+s.each_with_index do|factor, index|
+    if factor == "o"
+        ans[index] = "o"
+        count += 1
+        break if count == k
     end
-    i += 1
 end
-
-ans += "x" * (n - i)
 puts ans
