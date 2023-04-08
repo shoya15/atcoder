@@ -1,4 +1,4 @@
-N, P, Q, R, S = gets.split.map(&:to_i)
-a = gets.split.map(&:to_i)
-a[P - 1 ..Q - 1], a[R - 1..S - 1] = a[R - 1 ..S - 1], a[P - 1..Q - 1]
+N, P, Q, R, S = gets.split.map{ |x| x.to_i - 1}
+a = gets.split(" ")
+a[P..Q], a[R..S] = a[R..S], a[P..Q]
 puts a.join(" ")

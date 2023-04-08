@@ -1,6 +1,5 @@
 n, a, b = gets.split.map(&:to_i)
-s = gets.chomp.chars
-s += s
+s = gets.chomp.chars * 2
 ans = 10 ** 18
 n.times do|i|
     sum = a * i
