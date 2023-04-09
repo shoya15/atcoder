@@ -1,12 +1,6 @@
 s =gets.chomp
 n = s.size
-ans = 0
-for i in 1..n - 1
-    ans += 26 ** i
-end
+result = (1..n - 1).sum{ |i| 26 ** i }
 
-arr = ("A".."Z").to_a
-n.times do|i|
-    ans += arr.index(s[i]) * (26 ** (n - i - 1))
-end
-puts ans + 1
+array = *"A".."Z"
+puts result + (0..n - 1).sum{ |i| array.index(s[i]) * (26 ** (n - i - 1))} + 1
