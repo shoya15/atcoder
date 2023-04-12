@@ -22,3 +22,27 @@ for i in 1..n
     end
 end
 puts ans
+
+# require "tsort"
+
+# n, m = gets.split.map(&:to_i)
+
+# graph = (1..n).to_h{ |i| [i, Set[]] }
+
+# m.times do
+#   node1, node2 = gets.split.map(&:to_i)
+#   graph[node1] << node2
+#   graph[node2] << node1
+# end
+
+# class << graph
+#   include TSort
+
+#   alias tsort_each_node each_key
+
+#   def tsort_each_child(node, &block)
+#     fetch(node).each(&block)
+#   end
+# end
+
+# puts graph.strongly_connected_components.count

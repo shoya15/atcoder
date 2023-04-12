@@ -1,3 +1,5 @@
+# require "set"
+
 n = gets.to_i
 to = n.times.to_h{ gets.split }
 # to = n.times.to_h{ gets.split.map(&:to_sym) }
@@ -19,9 +21,10 @@ end
 puts "Yes"
 
 
-# s_array = to.keys
+# s_array = Set.new(to.keys)
 
-# while s = s_array.shift
+# while s = s_array.first
+#     s_array.delete(s)
 #     ns = s
 #     while ns = to[ns]
 #         if ns == s
