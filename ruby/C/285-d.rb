@@ -3,7 +3,6 @@
 n = gets.to_i
 to = n.times.to_h{ gets.split }
 # to = n.times.to_h{ gets.split.map(&:to_sym) }
->>>>>>> 13cecedb0d0655990193f97e570f18ea16f1655e
 # to = Array.new(n){ gets.split }.to_h
 
 visited = {}
