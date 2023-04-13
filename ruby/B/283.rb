@@ -1,4 +1,4 @@
-n = gets.to_i
+gets
 a = gets.split.map(&:to_i)
 q = gets.to_i
 q.times do
