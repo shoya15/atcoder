@@ -7,6 +7,6 @@ n.times do |i|
     flag = !flag
     next
   end
-  s[i] = '.' if s[i] == ',' && flag == false
+  s[i] = '.' if s[i] == ',' && !flag
 end
 puts s
