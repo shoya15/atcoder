@@ -1,19 +1,10 @@
 n = gets.to_i
-s_array = []
-t_array = []
-
 # 行き先
-to = {}
-
-n.times do
-    s, t = gets.split(" ")
-    s_array << s
-    t_array << t
-    to[s] = t
-end
+to = n.times.to_h{ gets.split }
+# to = Array.new(n){ gets.split }.to_h
 
 visited = {}
-s_array.each do|s|
+to.keys.each do|s|
     ns = s
     while !visited[ns]
         visited[ns] = true
