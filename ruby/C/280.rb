@@ -7,4 +7,4 @@ for i in 0..n - 1
     exit
   end
 end
-puts s[0..n - 1] == t[0..n - 1] ? t.size : n
+puts n + 1
