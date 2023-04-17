@@ -1,7 +1,7 @@
 n = gets.to_i
 s = gets.chomp
 
-puts s.gsub(/([^"]+)|".*?"/){ |i| i.include?('"') ? i : i.gsub(/,/, ".") }
+puts s.gsub(/([^"]+)|".*?"/){ |i| $1 ? i.tr(",", ".") : i }
 # flag = false
 
 # n.times do |i|
