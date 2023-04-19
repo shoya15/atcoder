@@ -1,4 +1,2 @@
 s = gets.chomp
-v =s.count("v")
-w =s.count("w")
-puts v + w * 2
+puts s.size + s.count("w")

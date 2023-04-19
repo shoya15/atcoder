@@ -1,7 +1,5 @@
 h, w = gets.split.map(&:to_i)
-ns = h.times.map{gets.chomp.chars}
-nt = h.times.map{gets.chomp.chars}
-# 転置してsort -> 一致していれば並べ替えて一致するのと同じ
-ns, nt = ns.transpose.sort, nt.transpose.sort
+s_array = Array.new(h){ gets.chomp.chars }.transpose.sort
+t_array = Array.new(h){ gets.chomp.chars }.transpose.sort
 
-puts ns == nt ? "Yes" : "No"
+puts s_array == t_array ? "Yes" : "No"
