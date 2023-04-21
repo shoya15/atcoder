@@ -1,13 +1,19 @@
 n = gets.to_i
-arr = []
-first = ["H", "D", "C", "S"]
-second = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"]
-ans = "No"
-cnt = 0
-n.times do
-  s = gets.chomp
-  arr << s
-  cnt += 1 if first.include?(s[0]) && second.include?(s[1])
+array1 = ["H", "D", "C", "S"]
+array2 = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"]
+s_array = Array.new(n){ gets.chomp }
+
+hash = {}
+s_array.each do |s|
+  if hash[s]
+    puts "No"
+    exit
+  end
+  hash[s] = true
+
+  unless array1.include?(s[0]) && array2.include?(s[1])
+    puts "No"
+    exit
+  end
 end
-ans = "Yes" if cnt == n && arr == arr.uniq
-puts ans
+puts "Yes"
