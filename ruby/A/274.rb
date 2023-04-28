@@ -1,3 +1,3 @@
-a, b = gets.split.map(&:to_f)
-s = (b / a).round(3).to_s
-puts s + "0" * (5 % s.size)
+a, b = gets.split.map(&:to_i)
+s = b.fdiv(a).round(3)
+puts sprintf("%0.3f", s)
