@@ -1,9 +1,5 @@
 def f(k)
-  f = 1
-  if k != 0
-    f = k * f(k - 1)
-  end
-  return f
+  (1..k).inject(1, :*)
 end
 
 n = gets.to_i
