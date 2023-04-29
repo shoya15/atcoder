@@ -1,2 +1,2 @@
-n = gets.to_i
-p gets.split.map(&:to_i).sum
+gets
+puts gets.split.map(&:to_i).sum

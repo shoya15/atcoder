@@ -1,13 +1,14 @@
 n, m = gets.split.map(&:to_i)
-temp = []
+hash = {}
 m.times do
-  arr = gets.split.map(&:to_i)
-  for i in 1..arr[0] - 1
-    for j in i + 1..arr[0]
-      temp << [arr[i], arr[j]]
+  array = gets.split.map(&:to_i)
+  k = array.shift
+  for i in 0..k - 2
+    for j in i + 1..k - 1
+      next if hash[[array[i], array[j]]]
+      hash[[array[i], array[j]]] = true
     end
   end
-  temp = temp.uniq
 end
-ans = (1..n - 1).to_a.sum
-puts temp.size == ans ? "Yes" : "No"
+
+puts hash.uniq.size == (1..n - 1).sum  ? "Yes" : "No"
