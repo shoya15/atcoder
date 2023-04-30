@@ -1,2 +1,2 @@
 gets
-puts gets.split.map(&:to_i).sum
+puts gets.split.sum{ |e| e.to_i }
