@@ -6,7 +6,7 @@ h.times do |s|
         flag = true
         h.times do |i|
             w.times do |j|
-                flag = false if array_a[(i - s + h) % h][(j - t + w) % w] != array_b[i][j]
+                flag = false if array_a[(i - s) % h][(j - t) % w] != array_b[i][j]
             end
         end
         if flag

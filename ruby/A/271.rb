@@ -1,4 +1,1 @@
-n = gets.to_i
-n = n.to_s(16)
-n = n.upcase if n != n.to_i
-puts n.size == 1 ? "0#{n}" : n
+puts gets.to_i.to_s(16).upcase.rjust(2, "0")
