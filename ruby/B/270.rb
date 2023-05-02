@@ -1,32 +1,11 @@
 x, y, z = gets.split.map(&:to_i)
-if x == 0
-  p 0
-elsif x > 0
-  if x < y || y < 0
-    p x
-  else
-    if y < z
-      p -1
-    else
-      if z < 0
-        p 2 * z.abs + x
-      else
-        p x
-      end
-    end
-  end
+x, y, z = -x, -y, -z if y < 0
+if x < y
+  puts x.abs
 else
-  if x > y || y > 0
-    p x.abs
+  if y < z
+    puts -1
   else
-    if z < y
-      p -1
-    else
-      if z > 0
-        p 2 * z.abs + x.abs
-      else
-        p x.abs
-      end
-    end
+    puts z.abs + (x - z).abs
   end
 end
