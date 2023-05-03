@@ -1,9 +1,21 @@
-arr = []
-s = "." * 10
-t = ""
-10.times do |i|
-  arr << gets.chomp
-  t = arr[i] if arr[i] != s
+array = Array.new(10){ gets.chomp }
+str = "." * 10
+a = b = c = d = 0
+array.each_with_index do |factor, index|
+  if factor != str
+    a = index + 1
+    c = factor.index("#") + 1
+    d = factor.rindex("#") + 1
+    break
+  end
 end
-puts "#{arr.index(t) + 1} #{arr.rindex(t) + 1}"
-puts "#{t.index("#") + 1} #{t.rindex("#") + 1}"
+
+array.reverse.each_with_index do |factor, index|
+  if factor != str
+    b = 10 - index
+    break
+  end
+end
+
+puts "#{a} #{b}"
+puts "#{c} #{d}"

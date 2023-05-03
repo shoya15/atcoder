@@ -1,3 +1,3 @@
 a, b, c, d = gets.split.map(&:to_i)
-p (a + b) * (c - d)
+puts (a + b) * (c - d)
 puts "Takahashi"
