@@ -1,16 +1,10 @@
-s = gets.chomp
-t = gets.chomp
-if s == t
-  puts "Yes"
-  exit
-end
-pre = ""
-for i in 0..t.size - 1
-  if pre == s
-    puts "Yes"
+s = gets.chomp.chars
+t = gets.chomp.chars
+
+s.each_with_index do |factor, index|
+  if factor != t[index]
+    puts "No"
     exit
-  else
-    pre += t[i]
   end
 end
-puts "No"
+puts "Yes"
