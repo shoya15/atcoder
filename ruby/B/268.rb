@@ -1,10 +1,7 @@
-s = gets.chomp.chars
-t = gets.chomp.chars
+# s = gets.chomp
+# t = gets.chomp[0, s.size]
+# puts s == t ? "Yes" : "No"
 
-s.each_with_index do |factor, index|
-  if factor != t[index]
-    puts "No"
-    exit
-  end
-end
-puts "Yes"
+s = gets.chomp
+t = gets.chomp
+puts t.start_with?(s) ? "Yes" : "No" 
