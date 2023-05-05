@@ -1,7 +1,2 @@
-arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-s = gets.chomp
-for i in 0..4
-  if s == arr[i]
-    p 5 - i
-  end
-end
+array = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+puts 5 - array.index(gets.chomp)
