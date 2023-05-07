@@ -1,11 +1,27 @@
-def cross(x, y, z)
-  return (z[0] - y[0]) * (x[1] - y[1]) - (z[1] - y[1]) * (x[0] - y[0])
+require "matrix"
+
+module CycleEachConsToArray
+  refine Array do
+    def cycle_each_cons(n)
+      return Enumerator.new{ cycle_each_cons(n, &_1) } unless block_given?
+
+      cycle.each_cons(n).take(length).each{ yield _1 }
+    end
+  end
 end
 
-a, b, c, d = Array.new(4){ gets.split.map(&:to_i) }
+using CycleEachConsToArray
 
-[[a, b, c], [b, c, d], [c, d, a], [d, a, b]].each do |array|
-  if cross(array[0], array[1], array[2]) <= 0
+a, b, c, d = Array.new(4){ gets.split.map(&:to_i) }
+def coss(a, b, c, d)
+  edges = [a, b, c, d].cycle_each_cons(2).map do |p1, p2|
+    [p2[0] - p1[0], p2[1] - p1[1]]
+  end
+  return edges
+end
+
+coss(a, b, c, d).cycle_each_cons(2).each do |edge1, edge2|
+  if Matrix[edge1, edge2].det <= 0
     puts "No"
     exit
   end

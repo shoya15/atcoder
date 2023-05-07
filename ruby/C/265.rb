@@ -1,16 +1,14 @@
 h, w = gets.split.map(&:to_i)
-searched = Array.new(h) { Array.new(w, false) }
-arr = []
-h.times do
-  arr << gets.chomp
-end
+arr = Array.new(h){ gets.chomp }
 
 i, j = 0, 0
+searched = Array.new(h) { Array.new(w, false) }
 loop do
-  if searched[i][j] == true
+  if searched[i][j]
     puts -1
     break
   end
+
   searched[i][j] = true
   if arr[i][j] == "U" && i != 0
     i -= 1

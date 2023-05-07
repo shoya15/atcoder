@@ -1,17 +1,13 @@
 n, m, t = gets.split.map(&:to_i)
 a = gets.split.map(&:to_i)
-ay = Array.new(n - 1, 0)
-m.times do
-  x, y = gets.split.map(&:to_i)
-  ay[x - 1] = y
-end
+hash = m.times.to_h{ gets.split.map(&:to_i) }
 
-for i in 0..n - 2
+(n - 1).times do |i|
   t -= a[i]
-  t += ay[i]
   if t <= 0
     puts "No"
     exit
   end
+  t += hash[i + 2] if hash[i + 2]
 end
 puts "Yes"
