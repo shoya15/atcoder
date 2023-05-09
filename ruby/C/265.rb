@@ -1,25 +1,35 @@
 h, w = gets.split.map(&:to_i)
-arr = Array.new(h){ gets.chomp }
-
-i, j = 0, 0
-searched = Array.new(h) { Array.new(w, false) }
-loop do
-  if searched[i][j]
-    puts -1
-    break
+arr = []
+h.times do |i|
+  str = gets.chomp
+  if i == 0
+    str = str.tr("U", "S")
+  elsif i == h - 1
+    str = str.tr("D", "S")
   end
 
-  searched[i][j] = true
-  if arr[i][j] == "U" && i != 0
-    i -= 1
-  elsif arr[i][j] == "D" && i != h - 1
-    i += 1
-  elsif arr[i][j] == "L" && j != 0
-    j -= 1
-  elsif arr[i][j] == "R" && j != w - 1
-    j += 1
-  else
-    puts "#{i + 1} #{j + 1}"
-    break
+  str[0]  = "S" if str[0]  == "L"
+  str[-1] = "S" if str[-1] == "R"
+  arr << str
+end
+arr = arr.join
+
+hash = {}
+k = 0
+while !hash[k]
+  hash[k] = true
+  case arr[k]
+  when "U"
+    k -= w
+  when "D"
+    k += w
+  when "L"
+    k -= 1
+  when "R"
+    k += 1
+  when "S"
+    puts "#{(k / w) + 1} #{(k % w) + 1}"
+    exit
   end
 end
+puts -1

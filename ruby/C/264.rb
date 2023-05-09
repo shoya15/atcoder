@@ -1,7 +1,7 @@
 h1, w1 = gets.split.map(&:to_i)
-a = h1.times.map { gets.split.map(&:to_i) }
+a = Array.new(h1){ gets.split.map(&:to_i) }
 h2, w2 = gets.split.map(&:to_i)
-b = h2.times.map { gets.split.map(&:to_i) }
+b = Array.new(h2){ gets.split.map(&:to_i) }
 
 (0..h1 - 1).to_a.combination(h2).each do |y|
   (0..w1 - 1).to_a.combination(w2).each do |x|
