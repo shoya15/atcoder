@@ -5,4 +5,4 @@ while m[i] != 1
   i = m[i] - 2
   ans += 1
 end
-p ans
+puts ans
