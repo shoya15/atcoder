@@ -1,11 +1,7 @@
 n = gets.to_i
-cnt = Hash.new(0)
+count = Hash.new(0)
 n.times do
     s = gets.chomp
-    if cnt[s] == 0
-        puts s
-    else
-        puts s + "(#{cnt[s]})"
-    end
-    cnt[s] += 1
+    puts count[s] == 0 ? s : s + "(#{count[s]})"
+    count[s] += 1
 end

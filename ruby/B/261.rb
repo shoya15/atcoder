@@ -1,22 +1,20 @@
 n = gets.to_i
-arr = []
-n.times do
-  arr << gets.chomp
-end
-for i in 0..n - 1
-  for j in 0..n - 1
-    if arr[i][j] == "W"
-      if arr[j][i] != "L"
+array = Array.new(n){ gets.chomp }
+
+n.times do |i|
+  n.times do |j|
+    if array[i][j] == "W"
+      if array[j][i] != "L"
         puts "incorrect"
         exit
       end
-    elsif arr[i][j] == "L"
-      if arr[j][i] != "W"
+    elsif array[i][j] == "L"
+      if array[j][i] != "W"
         puts "incorrect"
         exit
       end
-    elsif arr[i][j] == "D"
-      if arr[j][i] != "D"
+    elsif array[i][j] == "D"
+      if array[j][i] != "D"
         puts "incorrect"
         exit
       end
