@@ -1,23 +1,12 @@
 n = gets.to_i
-array = Array.new(n){ gets.chomp }
+array = Array.new(n){ gets.chomp.chars.map{ |c| c == "W" ? 1 : c == "L" ? -1 : 0} }
 
 n.times do |i|
-  n.times do |j|
-    if array[i][j] == "W"
-      if array[j][i] != "L"
-        puts "incorrect"
-        exit
-      end
-    elsif array[i][j] == "L"
-      if array[j][i] != "W"
-        puts "incorrect"
-        exit
-      end
-    elsif array[i][j] == "D"
-      if array[j][i] != "D"
-        puts "incorrect"
-        exit
-      end
+  array[i].each_with_index do |c, j|
+    next if j <= i
+    if c != -array[j][i]
+      puts "incorrect"
+      exit
     end
   end
 end
