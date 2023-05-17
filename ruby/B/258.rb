@@ -1,26 +1,24 @@
 n = gets.to_i
-arr = []
-n.times do
-  arr << gets.chars
-end
+array = Array.new(n){ gets.chomp.chars }
+
 dx = [-1, -1, -1, 0, 0, 1, 1, 1]
 dy = [-1, 0, 1, -1, 1, -1, 0, 1]
 max = 0
-for i in 0..n - 1
-  for j in 0..n - 1
-    for k in 0..7
-      temp = 0
+n.times do |i|
+  n.times  do |j|
+    8.times do |k|
+      count = 0
       x, y = i, j
-      for l in 0..n - 1
-        temp *= 10
-        temp += arr[x][y].to_i
+      n.times do
+        count *= 10
+        count += array[x][y].to_i
         x += dx[k]
         y += dy[k]
         x %= n
         y %= n
       end
-      max = [max, temp].max
+      max = [max, count].max
     end
   end
 end
-p max
+puts max

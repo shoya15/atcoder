@@ -3,7 +3,8 @@ s.default = 0
 t = gets.chomp.chars.tally
 t.default = 0
 array = %w(a t c o d e r)
-
+test
+    
 ("a".."z").each do |c|
     next if s[c] == t[c]
     if s[c] > t[c]
