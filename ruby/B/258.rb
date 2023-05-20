@@ -4,8 +4,11 @@ array = Array.new(n){ gets.chomp.chars }
 dx = [-1, -1, -1, 0, 0, 1, 1, 1]
 dy = [-1, 0, 1, -1, 1, -1, 0, 1]
 max = 0
+hash = {}
 n.times do |i|
   n.times  do |j|
+    next if hash.keys.max.to_i > array[i][j].to_i
+    hash[array[i][j]] = true
     8.times do |k|
       count = 0
       x, y = i, j

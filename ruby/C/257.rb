@@ -1,26 +1,25 @@
 n = gets.to_i
-s = gets.chomp.chars
+s = gets.chomp
 w = gets.split.map(&:to_i)
 
-arr = []
-w.each_with_index do |i, j|
-  arr << [i, s[j]]
+array = []
+w.each_with_index do |factor, index|
+  array << [factor, s[index]]
 end
-arr.sort!
+array.sort!
 
-ans = cnt = s.count('1')
-n.times do |i|
-  if arr[i][1] == '1' # 大人
-    cnt -= 1
+ans = count = s.count("1")
+array.each_with_index do |factor, index|
+  if factor[1] == "1"
+    count -= 1
   else
-    cnt += 1 # こども
+    count += 1
   end
-  if i == n - 1
-    ans = [ans, cnt].max
-    break
+  
+  if index != n - 1
+    ans = [ans, count].max if factor[0] != array[index + 1][0]
+  else
+    ans = [ans, count].max
   end
-  next if arr[i][0] == arr[i + 1][0]
-
-  ans = [ans, cnt].max
 end
 puts ans

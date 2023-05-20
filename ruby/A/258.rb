@@ -1,4 +1,3 @@
-k = gets.to_i
-k1 = k.to_s
-k2 = (k - 60).to_s
-puts k < 10 ? "21:0#{k1}" : k < 60 ? "21:#{k1}" : k < 70 ? "22:0#{k2}" : "22:#{k2}"
+k = gets.to_i + 21 * 60
+h, m = k.divmod(60)
+puts "#{h}:" + "%02d" % m

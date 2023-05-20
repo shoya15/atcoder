@@ -2,15 +2,13 @@ n, k, q = gets.split.map(&:to_i)
 a = gets.split.map(&:to_i)
 l = gets.split.map(&:to_i)
 
-for i in 0..q - 1
+q.times do |i|
+  index = l[i] - 1
+  next if a[index] == n
   if l[i] == k
-    if a[l[i] - 1] != n
-      a[l[i] - 1] += 1
-    end
-  else
-    if a[l[i] - 1] + 1 != a[l[i]]
-      a[l[i] - 1] += 1
-    end
+    a[index] += 1
+  elsif a[index] + 1 < a[l[i]]
+    a[index] += 1
   end
 end
 puts a.join(" ")
