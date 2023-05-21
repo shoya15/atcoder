@@ -1,14 +1,19 @@
 n = gets.to_i
-array = Array.new(n){ gets.chomp.chars }
+array = []
+num_max = 0
+n.times do
+  a = gets.chomp.chars.map(&:to_i)
+  num_max = [num_max, a.max].max
+  array << a
+end
 
 dx = [-1, -1, -1, 0, 0, 1, 1, 1]
 dy = [-1, 0, 1, -1, 1, -1, 0, 1]
 max = 0
-hash = {}
 n.times do |i|
   n.times  do |j|
-    next if hash.keys.max.to_i > array[i][j].to_i
-    hash[array[i][j]] = true
+    next if num_max > array[i][j]
+    num_max = array[i][j]
     8.times do |k|
       count = 0
       x, y = i, j
