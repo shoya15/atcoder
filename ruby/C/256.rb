@@ -1,20 +1,18 @@
-arr = gets.split.map(&:to_i)
-h = arr[0..2]
-w = arr[3..5]
+h1, h2, h3, w1, w2, w3 = gets.split.map(&:to_i)
 ans = 0
 for a in 1..28
   for b in 1..28
+    c = h1 - a - b
     for d in 1..28
       for e in 1..28
-        c = h[0] - a - b
-        f = h[1] - d - e
-        j1 = w[2] - c - f
+        f = h2 - d - e
+        i = w3 - pc - f
 
-        g = w[0] - a - d
-        i = w[1] - b - e
-        j2 = h[2] - g - i
+        g = w1 - a - d
+        h = w2 - b - e
+        next if i != h3 - g - h
 
-        ans += 1 if [c, f, j1, g, i].min > 0 && j1 == j2
+        ans += 1 if [c, f, i, g, h].min > 0
       end
     end
   end
