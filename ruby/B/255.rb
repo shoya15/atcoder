@@ -1,18 +1,11 @@
 n, k = gets.split.map(&:to_i)
 a = gets.split.map(&:to_i)
-arr = []
-n.times do
-  arr << gets.split.map(&:to_i)
-end
+array = Array.new(n) { gets.split.map(&:to_i) }
 
-max = 0
-for i in 0..n - 1
-  unless a.include?(i + 1)
-    temp = []
-    for j in 0..k - 1
-      temp << (arr[i][0] - arr[a[j] - 1][0]) ** 2 + (arr[i][1] - arr[a[j] - 1][1]) ** 2
-    end
-    max = [max, temp.min].max
-  end
+ans = 0
+array.each_with_index do |(x, y), index|
+  next if a.include?(index + 1)
+  d = a.map{ |nx| (x - array[nx - 1][0]) ** 2 + (y - array[nx - 1][1]) ** 2 }.min
+  ans = [ans, d].max
 end
-puts Math.sqrt(max)
+puts Math.sqrt(ans)
