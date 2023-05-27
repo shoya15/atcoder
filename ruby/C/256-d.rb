@@ -1,8 +1,10 @@
 n = gets.to_i
 array = Array.new(n){ gets.split.map(&:to_i) }.sort
 
-answer = array.chunk_while{ |(pre_left, pre_right), (left, right)| left <= pre_right}
-
-answer.each do |section|
-  puts "#{section[0][0]} #{section[-1][-1]}"
+right = 0
+array.chunk_while do |(_, pre_right), (left, _)|
+  right = [right, pre_right].max
+  left <= right
+end.each do |section|
+  puts "#{section[0][0]} #{section.sort_by{ |i, j| -j }[0][-1]}"
 end
