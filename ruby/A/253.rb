@@ -1,4 +1,2 @@
-a = gets.split.map(&:to_i)
-b = a[1]
-a = a.sort
-puts b == a[1] ? "Yes" : "No"
+a = gets.split
+puts a[1] == a.sort[1] ? "Yes" : "No"
