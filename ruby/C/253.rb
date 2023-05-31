@@ -1,7 +1,8 @@
 q = gets.to_i
+
 hash = Hash.new(0)
 max = -1
-min = 10**9 + 1
+min = Float::INFINITY
 q.times do
   t, x, c = gets.split.map(&:to_i)
   case t
@@ -15,7 +16,7 @@ q.times do
       hash.delete(x)
       if hash.empty?
         max = -1
-        min = 10**9 + 1
+        min = Float::INFINITY
       else
         max = hash.keys.max if max == x
         min = hash.keys.min if min == x
