@@ -1,12 +1,9 @@
 n = gets.to_i
-hash = {}
-arr = [-1]
-n.times do |i|
-  s, t = gets.split(' ')
-  next if hash[s]
+array = Array.new(n){ gets.split }
 
-  hash[s] = true
-  t = t.to_i
-  arr = [t, i + 1] if t > arr[0]
+hash = {}
+array.each_with_index do |(str, score), index|
+  next if hash[str]
+  hash[str] = [index + 1, score.to_i]
 end
-puts arr[1]
+puts hash.values.max_by{ |index, score| score }.first
