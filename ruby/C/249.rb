@@ -1,20 +1,11 @@
-n, m = gets.split.map(&:to_i)
-arr = []
-n.times do
-  arr << gets.chomp
-end
+n, k = gets.split.map(&:to_i)
+array = Array.new(n){ gets.chomp.chars }
 
 ans = 0
 1.upto(n) do |i|
-  arr.combination(i) do |j|
-    hash = Hash.new(0)
-    j.each do |k|
-      k.chars.each do |l|
-        hash[l] += 1
-      end
-    end
-    cnt = hash.values.count(m)
-    ans = [ans, cnt].max
+  array.combination(i) do |selected_str|
+    hash = selected_str.flatten.tally
+    ans = [ans, hash.values.count(k)].max
   end
 end
 puts ans
