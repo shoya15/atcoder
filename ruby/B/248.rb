@@ -4,4 +4,4 @@ while a < b
   a *= k
   ans += 1
 end
-p ans
+puts ans
