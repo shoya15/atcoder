@@ -1,3 +1,3 @@
 a, b = gets.split.map(&:to_i)
-d = Math.sqrt(a ** 2 + b ** 2)
+d = Math.hypot(a, b)
 puts "#{a / d} #{b / d}"
