@@ -1,18 +1,9 @@
 n, k, x = gets.split.map(&:to_i)
-a = gets.split.map(&:to_i).sort.reverse
-i = 0
-while k != 0 && i != n
-  break if a[i] <= x
+a = gets.split.map(&:to_i)
 
-  l = k
-  k = [k - a[i] / x, 0].max
-  if k == 0
-    a[i] -= l * x
-  else
-    a[i] %= x
-  end
-  i += 1
+a.map! do |item|
+  used_coupon = [item / x, k].min
+  k -= used_coupon
+  item - (used_coupon * x )
 end
-a = a.sort.reverse
-a[0..k - 1] = 0 if k != 0
-puts a.sum
+puts a.sum - a.max([k, n].min).sum
