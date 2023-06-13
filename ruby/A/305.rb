@@ -1,1 +1,1 @@
-puts (gets.to_f / 5).round * 5
+puts gets.to_i.quo(5).round * 5
