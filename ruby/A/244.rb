@@ -1,3 +1,2 @@
-n = gets.to_i
-s = gets.chomp
-puts s[n - 1]
+gets.to_i
+puts gets.chomp[-1]

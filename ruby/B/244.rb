@@ -1,19 +1,17 @@
 n = gets.to_i
-t = gets.chomp
-arr, d = [0, 0], [1, 0]
-for i in 0..n - 1
-  if t[i] == "S"
-    arr[0] += d[0]
-    arr[1] += d[1]
-  else t[i] == "R"
-    if d[0] == 1
-    d = [0, -1]
-  elsif d[1] == -1
-    d = [-1, 0]
-  elsif d[0] == -1
-    d = [0, 1]
-  elsif d[1] == 1
-    d = [1, 0]
-  end   end
+array = gets.chomp.chars
+
+x = y = 0
+dx = [1, 0, -1, 0]
+dy = [0, -1, 0, 1]
+dir = 0
+array.each do |c|
+  if c == "S"
+    x += dx[dir]
+    y += dy[dir]
+  else
+    dir += 1
+    dir %= 4
+  end
 end
-puts arr.join(" ")
+puts "#{x} #{y}"
