@@ -5,21 +5,17 @@ no_cookie = "." * w
 top = array.index{ _1 != no_cookie }
 buttom = array.rindex{ _1 != no_cookie }
 left = Float::INFINITY
-right = 0
 
 h.times do |i|
   w.times do |j|
-    if array[i][j] == "#"
-      left = [left, j].min
-      right = [right, j].max
-    end
+    left = [left, j].min if array[i][j] == "#"
   end
 end
 
-top.upto(buttom) do |i|
-  left.upto(right) do |j|
-    if array[i][j] == "."
-      puts "#{i + 1} #{j + 1}"
+left.upto(w - 1) do |i|
+  top.upto(buttom) do |j|
+    if array[j][i] == "."
+      puts "#{j + 1} #{i + 1}"
       exit
     end
   end
