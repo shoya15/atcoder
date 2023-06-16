@@ -1,15 +1,11 @@
-n, m = gets.split.map(&:to_i)
-a = gets.split.map(&:to_i)
-b = gets.split.map(&:to_i)
-arr = Array.new(n, 1)
-sum = 0
-for i in 0..m - 1
-  for j in 0..n - 1
-    if arr[j] == 1 && b[i] == a[j]
-      arr[j] = 0
-      sum += 1
-      break
-    end
+gets.split
+a = gets.split.tally
+b = gets.split.tally
+
+b.keys.each do |length_of_pasta|
+  if !a[length_of_pasta] || b[length_of_pasta] > a[length_of_pasta]
+    puts "No"
+    exit
   end
 end
-puts sum == m ? "Yes" : "No"
+puts "Yes"
