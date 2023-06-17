@@ -1,11 +1,6 @@
 gets.split
 a = gets.split.tally
+a.default = 0
 b = gets.split.tally
 
-b.keys.each do |length_of_pasta|
-  if !a[length_of_pasta] || b[length_of_pasta] > a[length_of_pasta]
-    puts "No"
-    exit
-  end
-end
-puts "Yes"
+puts b.keys.all?{ b[_1] <= a[_1] } ? "Yes" : "No"

@@ -1,3 +1,2 @@
-n = gets.to_i
-a = gets.split.map(&:to_i).uniq
-p a.size
+gets.to_i
+puts gets.split.uniq.size

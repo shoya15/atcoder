@@ -1,20 +1,14 @@
 n, x = gets.split.map(&:to_i)
-dp = Array.new(n) { Array.new(x + 1, false) }
+dp = Array.new(n + 1){ Array.new(x + 1, false) }
+dp[0][0] = true
 
 n.times do |i|
   a, b = gets.split.map(&:to_i)
-  if i == 0
-    dp[i][a] = true
-    dp[i][b] = true
-  else
-    (x + 1).times do |j|
-      next if x == 0
-
-      if dp[i - 1][j]
-        dp[i][j + a] = true if j + a <= x
-        dp[i][j + b] = true if j + b <= x
-      end
+  (x + 1).times do |j|
+    if dp[i][j]
+      dp[i + 1][j + a] = true if j + a <= x
+      dp[i + 1][j + b] = true if j + b <= x
     end
   end
 end
-puts dp[n - 1][x] ? 'Yes' : 'No'
+puts dp[n][x] ? "Yes" : "No"

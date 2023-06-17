@@ -6,7 +6,8 @@ dx = [0, 1, 1, 1]
 n.times do |i|
   n.times do |j|
     4.times do |k|
-      next unless i + dy[k] * 5 < n && 0 <= i + dy[k] * 5 && j + dx[k] * 5 < n
+      next unless (i + dy[k] * 5).between?(0, n - 1) && (j + dx[k] * 5 < n)
+      # next unless (0...n).cover?(i + dy[k] * 5) && j + dx[k] * 5 < n
       count = 0
       6.times do |l|
         count += 1 if array[i + dy[k] * l][j + dx[k] * l]
