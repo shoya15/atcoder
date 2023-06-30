@@ -1,33 +1,13 @@
-s = gets.chomp.chars
-n = s.size
-x = 0
-for i in 0..n - 1
-  if s[i] == 'a'
-    x += 1
-    next
+def counter_of_a(s, count = 0)
+  while s[count] == "a"
+    count += 1
   end
-  break
-end
-y = 0
-(n - 1).downto(0) do |i|
-  if s[i] == 'a'
-    y += 1
-    next
-  end
-  break
+  return count
 end
 
-if x == n
-  puts 'Yes'
-  exit
-elsif x > y
-  puts 'No'
-  exit
-else
-  s = s.unshift('a' * (y - x)).join
-  if s == s.reverse
-    puts 'Yes'
-  else
-    puts 'No'
-  end
-end
+s = gets.chomp
+
+left = counter_of_a(s)
+right = counter_of_a(s.reverse)
+s = "a" * [right - left, 0].max + s
+puts s == s.reverse ? "Yes" : "No"
