@@ -1,12 +1,12 @@
 n, m = gets.split.map(&:to_i)
-s = gets.split(' ')
-t = gets.split(' ')
-j = 0
-for i in 0..n - 1
-  if s[i] == t[j]
-    puts 'Yes'
-    j += 1
+s = gets.split
+t = gets.split
+
+s.each do
+  if _1 == t[0]
+    t.shift
+    puts "Yes"
   else
-    puts 'No'
+    puts "No"
   end
 end
