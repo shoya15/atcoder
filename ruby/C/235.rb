@@ -1,9 +1,7 @@
-n, q = gets.split.map(&:to_i)
+_, q = gets.split.map(&:to_i)
 a = gets.split.map(&:to_i)
-hash = Hash.new { |hash, k| hash[k] = [] }
-a.each_with_index do |i, j|
-  hash[i] << j + 1
-end
+hash = Hash.new{ |h, k| h[k] = [] }
+a.each.with_index(1){ hash[_1] << _2}
 
 q.times do
   x, k = gets.split.map(&:to_i)

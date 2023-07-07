@@ -1,9 +1,9 @@
-n = gets.to_i
+gets
 h = gets.split.map(&:to_i)
-max = h[0]
-for i in 1..n - 1
-  break if max == h[i]
-  max = [max, h[i]].max
-  break if max != h[i]
-end
-p max
+h << -1
+h.each_cons(2){
+  unless _1 < _2
+    puts _1
+    exit
+  end
+}
