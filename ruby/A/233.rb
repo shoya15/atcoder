@@ -1,3 +1,9 @@
 x, y = gets.split.map(&:to_i)
 y -= x
-p y <= 0 ? 0 : y % 10 == 0 ? y / 10 : y / 10 + 1
+if y < 0
+  puts 0
+  exit
+end
+
+ans = y / 10
+puts y % 10 == 0 ? ans : ans + 1
