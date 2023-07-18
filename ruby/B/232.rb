@@ -1,11 +1,6 @@
-s = gets.chomp
-t = gets.chomp
+s = gets.chomp.chars
+t = gets.chomp.chars
+
+u = s.zip(t)
 k = (t[0].ord - s[0].ord) % 26
-for i in 0..s.size - 1
-  temp = (s[i].ord + k) % 26
-  if temp != t[i].ord % 26
-    puts "No"
-    exit
-  end
-end
-puts "Yes"
+puts u.all?{ (_1.ord + k) % 26 == _2.ord % 26 } ? "Yes" : "No"
