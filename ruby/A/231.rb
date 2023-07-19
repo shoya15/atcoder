@@ -1,1 +1,1 @@
-p gets.to_f / 100
+puts gets.to_i.fdiv(100)
