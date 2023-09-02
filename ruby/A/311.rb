@@ -10,3 +10,4 @@ s.each_with_index do
     exit
   end
 end
+test
